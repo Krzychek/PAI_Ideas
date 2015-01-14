@@ -1,4 +1,5 @@
 <?php
+require_once('MySQL.php');
 function _autoloader($class) {
 	switch($class[0]) {
 		case 'V': include 'views/'.$class.'.php'; break;
@@ -6,10 +7,9 @@ function _autoloader($class) {
 	}
 }
 spl_autoload_register('_autoloader');
-
 require_once('Router.php');
 $router = new Router($_GET['q']);
 $controller = $router->getController();
 $action = $router->getAction();
-$controller->$action();
+$controller->$action($router->getParams());
 ?>

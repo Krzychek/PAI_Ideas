@@ -1,7 +1,7 @@
-<?php class Test {
+<?php class Main {
 	function __construct() {}
 	function call() {
-		$view = new VTest('Test!!');
+		$view = new VMain;
 		$view->render();
 	}
 }?>

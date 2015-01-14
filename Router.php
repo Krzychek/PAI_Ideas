@@ -1,39 +1,29 @@
 <?php class Router {
 	private static $controllers = array(
-		'Test',
+		'Main','Register','Login'
 	);
 	private $controller;
 	private $action;
 	private $params;
 	function __construct($route) {
-		if($route) {
-			$route = explode('/',$route);
-			switch (count($route)) {
-				case 2:
-					$this->controller = $route[0];
-					$this->action = "call";
-					$this->params = [];
-					break;
-				case 3:
-					$this->controller = $route[0];
-					$this->action = $route[1];
-					$this->params = [];
-					break;
-				default:
-					$this->controller = $route[0];
-					$this->action = $route[1];
-					$this->params = array_slice($route,2);
-			}
-		} else {
-			$this->controller = "main";
-			$this->action = "call";
-			$this->params = [];
+		$route = explode('/',$route);
+		$this->controller = $route[0];
+		$this->action = $route[1];
+		$this->params = array_slice($route,2);
+		if (strlen($this->controller) < 2)  {
+			$this->controller = 'Main';
 		}
+		if (strlen($this->action) < 2) {
+			$this->action = 'call';
+		}
+		if (!in_array($this->controller, self::$controllers)) {
+			header('Location: ' . '/notFound404');
+			exit;
+		}
+
 	}
 	function getController() {
-		if (in_array($this->controller, self::$controllers)) {
 			return new $this->controller;
-		}
 	}
 	function getAction() {
 		return $this->action;
