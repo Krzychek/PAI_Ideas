@@ -25,7 +25,7 @@
 	}
 	static function require_auth() {
 		if (!self::check_auth()):
-			header("Location: http://www.example.com/");
+			header("Location: /makeapp/Login/");
 			die();
 		endif;
 	}

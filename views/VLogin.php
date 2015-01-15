@@ -1,7 +1,7 @@
 <?php class VLogin extends View {
 	private $href;
 
-	function __construct($href = "Main") {
+	function __construct($href = "") {
 		$this->href = $href;
 	}
 	function view_body() {
