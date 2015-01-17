@@ -30,7 +30,7 @@
                     <a href="TODO" class="idea_title">Second not real, but awesome idea</a>
                     <div class="idea_tags">
                         <a href="TODO" class="idea_tag">second</a>
-                        <a href="TODO" class="idea_tag">cute</a>
+                        <a href="TODO" class="idea_tag">awesome</a>
                     </div>
                 </div>
                 <div class="idea_stats">
