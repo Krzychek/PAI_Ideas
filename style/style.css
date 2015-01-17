@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     min-width: 850px;
-    background-color: #876453;
+    background: #BCB1AC;
     font-family: Helvetica, tahoma, verdana, arial, sans-serif
 }
 
@@ -212,17 +212,17 @@ html, body, .form_div {
     margin: 15px auto 20px;
     padding: 0;
     width: 1000px;
-    -webkit-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
-    -moz-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
-    box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    -webkit-box-shadow: 0 0 10px -1px rgb(50, 50, 50);
+    -moz-box-shadow: 0 0 10px -1px rgb(50, 50, 50);
+    box-shadow: 0 0 10px -1px rgb(50, 50, 50);
     border-radius: 2px;
 }
 
 .idea {
     background: #3D3937;
-    -webkit-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
-    -moz-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
-    box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    -webkit-box-shadow: 0 0 3px 0px rgb(50, 50, 50);
+    -moz-box-shadow: 0 0 3px 0px rgb(50, 50, 50);
+    box-shadow: 0 0 3px 0px rgb(50, 50, 50);
     padding: 10px;
     margin: 10px;
     overflow: auto;
@@ -255,7 +255,7 @@ html, body, .form_div {
     margin: 5px;
     padding: 5px;
     cursor: default;
-    color: #876453;
+    color: #a99e9b;
 }
 
 .idea_stat_desc {
@@ -270,7 +270,7 @@ html, body, .form_div {
     padding: 2px;
     float: left;
     font-size: smaller;
-    color: #876453;
+    color: #a99e9b;
     cursor: pointer;
 }
 
