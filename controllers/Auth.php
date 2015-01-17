@@ -13,14 +13,14 @@
 			return false;
 		endif;
 
-		$login = $connection->real_escape_string($authAuth['username']);
-		$result = $connection->query("SELECT a1digest FROM `users`
-			WHERE login = '{$login}'", MYSQLI_USE_RESULT);
-		$A1 = $result->fetch_object()->a1digest;
-		$A2 = md5("{$_SERVER['REQUEST_METHOD']}:{$authAuth['uri']}");
-		$validResponse = md5("{$A1}:{$authAuth['nonce']}:{$authAuth['nc']}:{$authAuth['cnonce']}:{$authAuth['qop']}:{$A2}");
-
-		if ($authAuth['response']!=$validResponse) return false;
+		if (isset($authAuth)) {
+			$login = $connection->real_escape_string($authAuth['username']);
+			$result = $connection->query("SELECT a1digest FROM `users` WHERE login = '{$login}'", MYSQLI_USE_RESULT);
+			$A1 = $result->fetch_object()->a1digest;
+			$A2 = md5("{$_SERVER['REQUEST_METHOD']}:{$authAuth['uri']}");
+			$validResponse = md5("{$A1}:{$authAuth['nonce']}:{$authAuth['nc']}:{$authAuth['cnonce']}:{$authAuth['qop']}:{$A2}");
+			if ($authAuth['response']!=$validResponse) return false;
+		}
 		return true;
 	}
 	static function require_auth() {
@@ -30,4 +30,3 @@
 		endif;
 	}
 }
-?>

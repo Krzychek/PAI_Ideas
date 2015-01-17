@@ -1,20 +1,26 @@
-<?php class Register {
-	function __construct() {
-		require_once('auth.php');
-	}
-	function call() {
-		$view = new VRegister;
-		$view->render();
-	}
-	function register() {
-		// TODO check if exist
-		$connection = MySQL::getConnection();
-		$A1 = $_POST['A1'];
-		$result = $connection->query("INSERT INTO `users`(id, digesta1)
-		VALUES ('{$login}', '{$A1}';");
-	}
-	function check() {
-		// TODO
-		echo true;
-	}
-}?>
+<?php class Register
+{
+    function register()
+    {
+        $connection = MySQL::getConnection();
+        $A1 = $connection->real_escape_string($_POST['A1']);
+        $login = $connection->real_escape_string($_POST['login']);
+        if ($connection->query("INSERT INTO `users`(login, a1digest) VALUES ('$login', '$A1';")) {
+            // TODO if exist
+        }
+    }
+
+    function call()
+    {
+        $view = new VRegister;
+        $view->render();
+    }
+
+    function check($params)
+    {
+        $connection = MySQL::getConnection();
+        $login = $params[0];
+        if (strlen($login) > 2 && !$connection->query("SELECT * FROM users WHERE login = '$login'")->num_rows)
+            echo 'available';
+    }
+}
