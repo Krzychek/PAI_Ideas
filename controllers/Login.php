@@ -8,7 +8,7 @@
             header('HTTP/1.0 401 Unauthorized');
             die();
         } else {
-            echo "success";
+            header('HTTP/1.0 200 Ok');
         }
     }
 
@@ -17,10 +17,4 @@
         $view = new VLogin;
         $view->render();
     }
-
-    function check()
-    {
-        // TODO
-        echo true;
-    }
-} ?>
+}
