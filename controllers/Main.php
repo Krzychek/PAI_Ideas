@@ -6,7 +6,7 @@
 
     function call()
     {
-        Auth::require_auth();
+        Auth::check_auth();
         $view = new VMain;
         $view->render();
     }

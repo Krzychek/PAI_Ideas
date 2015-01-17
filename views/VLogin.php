@@ -23,7 +23,7 @@
                 http.open("get", '/makeapp/Login/dologin/', false, username, password);
                 http.send("");
                 if (http.status == 200) {
-                    document.location = '/makeapp/';
+                    document.location = '/makeapp/Main';
                 } else {
                     alert("Incorrect username and/or password.");
                 }

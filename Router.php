@@ -11,8 +11,10 @@
 		$this->controller = ucfirst(strtolower($route[0]));
 		$this->action = $route[1];
 		$this->params = array_slice($route,2);
-		if (strlen($this->controller) < 2)
-			$this->controller = 'Main';
+		if (strlen($this->controller) < 2) {
+			header('Location: /makeapp/Login/');
+			exit;
+		}
 		if (strlen($this->action) < 2)
 			$this->action = 'call';
 		if (!in_array($this->controller, self::$controllers)) {
