@@ -146,9 +146,9 @@ html, body, .form_div {
     border-color: #BCB1AC;
     border-radius: 2px;
     background-color: #3D3937;
-    -webkit-box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
-    box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
+    -webkit-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    -moz-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    box-shadow: 0 0 20px -1px rgb(50, 50, 50);
     color: #BCB1AC;
 }
 
@@ -206,15 +206,74 @@ html, body, .form_div {
 
 /* .idea_list */
 .idea_list {
-    background: #BDB76B;
-    display: block;
-    margin: 10px auto;
-    padding: 0 20px;
-    min-width: 500px;
-    max-width: 1200px;
+    overflow: auto;
+    height: auto;
+    background: #876453;
+    margin: 15px auto 20px;
+    padding: 0;
+    width: 1000px;
+    -webkit-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    -moz-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    border-radius: 2px;
 }
+
 .idea {
-    display: block;
-    clear: both;
-    margin: 10px 0;
+    background: #3D3937;
+    -webkit-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    -moz-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    padding: 10px;
+    margin: 10px;
+    overflow: auto;
+    height: auto clear : both;
+}
+
+.idea_main {
+    float: left;
+    width: 800px;
+}
+
+.idea_stats {
+    float: right;
+}
+
+.idea_title {
+    text-decoration: none;
+    font-weight: bold;
+    color: #BCB1AC;
+    font-size: larger;
+}
+
+.idea_title:hover {
+    text-decoration: underline;
+}
+
+.idea_stat {
+    float: right;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    cursor: default;
+    color: #876453;
+}
+
+.idea_stat_desc {
+    font-size: smaller;
+    text-transform: uppercase;
+}
+
+.idea_tag {
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 3px;
+    padding: 2px;
+    float: left;
+    font-size: smaller;
+    color: #876453;
+    cursor: pointer;
+}
+
+.idea_stat:hover, .idea_tag:hover {
+    color: #BCB1AC;
 }
