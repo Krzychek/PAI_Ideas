@@ -2,7 +2,6 @@
 {
     function __construct()
     {
-        Auth::require_auth();
     }
 
     function call()

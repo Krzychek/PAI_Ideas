@@ -65,20 +65,22 @@ body {
 }
 
 /* Login form */
-.login_form_wrapper {
-    position: relative;
-    left: 50%;
-    float: left;
+html, body, .form_div {
+    height: 100%;
 }
 
-.login_form {
-    position: relative;
-    top: 100px;
-    left: -50%;
-    display: inline-block;
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: block;
     overflow: auto;
-    margin: 15px;
-    padding: 10px 15px;
+    margin: 0;
+    padding: 5px 15px;
     width: auto;
     background-color: #3D3937;
     -webkit-box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
@@ -89,45 +91,43 @@ body {
     font-weight: bold;
 }
 
-.login,
-.pass {
+.form_input {
     margin: 0;
     padding: 0;
-    width: 200px;
-    border-style: solid;
-    border-color: #876453;
+    width: 150px;
+    border: solid #876453;
     background-color: #BCB1AC;
     font-size: inherit;
 }
 
-.login_button {
+.form_div {
     position: relative;
-    top: 50%;
+    height: 100%;
     display: block;
-    box-sizing: border-box;
-    margin: 0 0 0 20px;
-    width: 52px;
-    height: 52px;
-    border: solid 2px #3D3937;
-    border-radius: 25px;
-    background-color: #876453;
-    -webkit-box-shadow: 0 0 16px 0 rgba(135, 100, 83, 0.75);
-    -moz-box-shadow: 0 0 16px 0 rgba(135, 100, 83, 0.75);
-    box-shadow: 0 0 16px 0 rgba(135, 100, 83, 0.75);
-    font-size: 30px;
 }
 
-.login_column {
-    position: relative;
-    top: 0;
-    bottom: 0;
+.form_div > * {
+    float: right;
     display: block;
-    float: left;
-}
-
-.login_form:first-child .form_div {
     clear: both;
     margin: 10px 0;
+}
+
+.form_button {
+    float: none;
+    position: relative;
+    display: block;
+    left: 50%;
+    font-weight: inherit;
+    font-family: inherit;
+    border: none;
+    background-color: #3D3937;
+    font-size: inherit;
+    color: inherit;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    transform: translate(-50);
 }
 
 /* Table presentation */

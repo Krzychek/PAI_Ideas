@@ -30,25 +30,16 @@
                 return false;
             }
         </script>
-        <div class="login_form_wrapper">
-            <div class="login_form">
-                <form onsubmit="return doLogin()">
-                    <div class="login_column">
-                        <!--					TODO: delete divs! -->
-                        <div class="form_div">
-                            <label>Login: <input type=text id="login-username" class="login" name="login"></label>
-                        </div>
-                        <div class="form_div">
-                            <label>Hasło: <input type=password id="login-password" class="pass" name="password"></label>
-                        </div>
-                    </div>
-                    <div class="login_column">
-                        <div class="form_div">
-                            <input type=submit value="&#10003;" class="login_button">
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <div class="form">
+            <form onsubmit="return doLogin()">
+                <div class="form_div">
+                    <label>Login: <input type=text id="login-username" class="form_input" name="login"></label>
+                    <label>Hasło: <input type=password id="login-password" class="form_input" name="password"></label>
+                </div>
+                <div class="form_div">
+                    <input type=submit value="ZALOGUJ" class="form_button">
+                </div>
+            </form>
         </div>
     <?php
     }
