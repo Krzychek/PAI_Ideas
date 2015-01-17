@@ -21,6 +21,6 @@
 		}
 	}
 	function getController() { return new $this->controller; }
-	function getAction() { return $this->action;	}
-	function getParams() { return $this->params;	}
+	function getAction() { return $this->action; }
+	function getParams() { return $this->params; }
 }

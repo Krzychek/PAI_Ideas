@@ -1,4 +1,4 @@
-<?php class Register
+<?php class Register extends Controller
 {
     function register()
     {

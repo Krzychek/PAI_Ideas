@@ -1,12 +1,5 @@
 <?php class VLogin extends View
 {
-    private $href;
-
-    function __construct($href = "")
-    {
-        $this->href = $href;
-    }
-
     function view_body()
     {
         ?>
@@ -27,10 +20,10 @@
                 var http = getHTTPObject();
                 var username = document.getElementById('login-username').value;
                 var password = document.getElementById('login-password').value;
-                http.open("get", '/makeapp/Login/login/', false, username, password);
+                http.open("get", '/makeapp/Login/dologin/', false, username, password);
                 http.send("");
                 if (http.status == 200) {
-                    document.location = '/makeapp/<?php echo $this->href ?>';
+                    document.location = '/makeapp/';
                 } else {
                     alert("Incorrect username and/or password.");
                 }

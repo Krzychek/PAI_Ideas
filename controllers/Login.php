@@ -1,6 +1,6 @@
-<?php class Login
+<?php class Login extends Controller
 {
-    function login()
+    function dologin()
     {
         if (!Auth::check_auth()) {
             header('WWW-Authenticate: Digest realm="' . "DB" . '",qop="auth",nonce="' . uniqid()
