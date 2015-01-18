@@ -11,7 +11,7 @@
     {
         require('top_panel.php'); ?>
         <div class="content">
-            <div class="section">
+            <div class="major_section">
                 <div class="idea_main">
                     <a href="TODO" class="idea_title"><?= $this->idea['title'] ?></a>
 
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="section idea_desc"><?= $this->idea['description'] ?></div>
+            <div class="major_section idea_desc"><?= $this->idea['description'] ?></div>
         </div>
     <?php
     }

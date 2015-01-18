@@ -213,19 +213,39 @@ html, body, .form_div {
     padding: 0;
     width: 800px;
     height: auto;
-    border-radius: 2px;
+    border-radius: 4px;
     background: #876453;
     -webkit-box-shadow: 0 0 10px -1px #323232;
     -moz-box-shadow: 0 0 10px -1px #323232;
     box-shadow: 0 0 10px -1px #323232;
 }
 
-.section {
+.content > hr {
+    border: 0;
+    border-top: 2px dashed #3D3937;
+
+}
+
+.major_section {
     clear: both;
     overflow: auto;
     margin: 10px;
     padding: 10px;
     height: auto;
+    border-radius: 3px;
+    background: #3D3937;
+    -webkit-box-shadow: 0 0 3px 0 #323232;
+    -moz-box-shadow: 0 0 3px 0 #323232;
+    box-shadow: 0 0 3px 0 #323232;
+}
+
+.minor_section {
+    clear: both;
+    overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    height: auto;
+    border-radius: 3px;
     background: #3D3937;
     -webkit-box-shadow: 0 0 3px 0 #323232;
     -moz-box-shadow: 0 0 3px 0 #323232;

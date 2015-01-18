@@ -12,7 +12,7 @@
         require('top_panel.php'); ?>
         <div class="content">
             <?php foreach ($this->data as $idea) { ?>
-                <div class="section">
+                <div class="major_section">
                     <div class="idea_main">
                         <a href="/makeapp/idea/<?=$idea['idea_id']?>" class="idea_title"><?= $idea['title'] ?></a>
 
