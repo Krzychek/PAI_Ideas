@@ -19,7 +19,8 @@
                     if ('login' in params) enableSubmit.login = params.login;
                     if ('pass' in params) enableSubmit.pass = params.pass;
                 }
-                document.getElementById('submit_btn').disabled = !('login' in enableSubmit && enableSubmit.login && 'pass' in enableSubmit && enableSubmit.pass);
+                document.getElementById('submit_btn').disabled = !('login' in enableSubmit && enableSubmit.login &&
+                                                                   'pass' in enableSubmit && enableSubmit.pass);
             }
             function getHTTPObject() {
                 if (typeof XMLHttpRequest != 'undefined') return new XMLHttpRequest();
