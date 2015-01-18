@@ -36,5 +36,4 @@ spl_autoload_register('_autoloader');
 require_once('Router.php');
 $router = new Router($_GET['q']);
 $controller = $router->getController();
-$action = $router->getAction();
-$controller->$action($router->getParams());
+$controller->call($router->getParams());
