@@ -53,7 +53,7 @@
 				} catch (e) {
 				}
 			}
-			http.open("get", '/makeapp/Login/dologin/', false, ' ', ' ');
+			http.open("get", '<?= $GLOBALS['mainFolder'] ?>/Login/dologin/', false, ' ', ' ');
 			http.send("");
 		</script>
 	<?php

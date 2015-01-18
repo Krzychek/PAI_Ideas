@@ -2,7 +2,7 @@
 {
     function view_body()
     { ?>
-        <form class="form" method='POST' action='/makeapp/Register/register/'>
+        <form class="form" method='POST' action='<?= $GLOBALS['mainFolder'] ?>/Register/register/'>
             <div class="form_div">
                 <label>Login: <input class="form_input" onkeyup="login_check()" type="text" name="login"></label>
                 <label>Hasło: <input class="form_input" onkeyup="pass_check()" type="password" name="pass"></label>
@@ -43,7 +43,7 @@
                     }
                 };
                 xmlhttp.open('GET',
-                    '/makeapp/Register/check/' + document.getElementsByName('login')[0].value + '/',
+                    '<?= $GLOBALS['mainFolder'] ?>/Register/check/' + document.getElementsByName('login')[0].value + '/',
                     true);
                 xmlhttp.send();
             }

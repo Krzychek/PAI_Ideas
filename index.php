@@ -1,4 +1,5 @@
 <?php
+$GLOBALS['mainFolder'] = '/makeapp';
 
 class MySQL
 {
@@ -9,7 +10,7 @@ class MySQL
         if (is_null(self::$connection)) {
             $db_host = "localhost";
             $db_name = "makeapp";
-            $db_username = "root";
+            $db_username = "makeapp";
             $db_password = "kolosik";
             self::$connection = new MySQLi($db_host, $db_username, $db_password, $db_name);
             self::$connection->connect_errno and die("Connect failed: %s\n" . self::$connection->connect_error);
@@ -36,4 +37,5 @@ spl_autoload_register('_autoloader');
 require_once('Router.php');
 $router = new Router($_GET['q']);
 $controller = $router->getController();
+/** @noinspection PhpUndefinedMethodInspection */
 $controller->call($router->getParams());

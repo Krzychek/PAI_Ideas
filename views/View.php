@@ -15,7 +15,7 @@
         <head>
             <title>MakeApp - place for app ideas</title>
             <meta charset="utf-8">
-            <link rel="stylesheet" href="/makeapp/style/style.css">
+            <link rel="stylesheet" href="<?= $GLOBALS['mainFolder'] ?>/style/style.css">
             <?php $this->view_head(); ?>
         </head>
         <body>
