@@ -35,6 +35,9 @@
                 </div>
             </div>
             <div class="major_section idea_desc"><?= $this->idea['description'] ?></div>
+            <hr/>
+            <div class="major_section" style="text-align: center;">KOMENTARZE</div>
+            <div class="minor_section">komentarze</div>
         </div>
     <?php
     }
