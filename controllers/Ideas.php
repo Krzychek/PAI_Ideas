@@ -1,4 +1,4 @@
-<?php class Main extends Controller
+<?php class Ideas extends Controller
 {
     function __construct()
     {
@@ -9,7 +9,7 @@
         Auth::check_auth();
         $conn = MySQL::getConnection();
         $data = $conn->query("SELECT * FROM ideas_overview")->fetch_all(MYSQLI_ASSOC);
-        $view = new VMain($data);
+        $view = new VIdeas($data);
         $view->render();
     }
 }

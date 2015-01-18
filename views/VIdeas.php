@@ -1,4 +1,4 @@
-<?php class VMain extends View
+<?php class VIdeas extends View
 {
     private $data;
 
