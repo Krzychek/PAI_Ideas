@@ -256,7 +256,7 @@ html, body, .form_div {
     float: right;
     margin: 5px;
     padding: 5px;
-    color: #a99e9b;
+    color: #7f7776;
     text-align: center;
     cursor: default;
 }
@@ -268,9 +268,9 @@ html, body, .form_div {
 
 .idea_tag {
     float: left;
-    margin: 3px;
-    padding: 2px;
-    color: #a99e9b;
+    margin: 5px 3px;
+    padding: 0;
+    color: #7f7776;
     text-decoration: none;
     text-transform: uppercase;
     font-size: smaller;

@@ -1,6 +1,6 @@
 <?php class Router {
 	private static $controllers = array(
-		'Main','Register','Login'
+		'Main','Register','Auth'
 	);
 	private $controller;
 	private $action;
@@ -12,7 +12,7 @@
 		$this->action = $route[1];
 		$this->params = array_slice($route,2);
 		if (strlen($this->controller) < 2) {
-			header('Location: /makeapp/Login/');
+			header('Location: /makeapp/Auth/');
 			exit;
 		}
 		if (strlen($this->action) < 2)
