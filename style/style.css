@@ -277,8 +277,8 @@ html, body, .form_div {
 
 .idea_stat {
     float: right;
-    margin: 5px;
-    padding: 5px;
+    margin: 5px 10px;
+    padding: 0;
     color: #7f7776;
     text-align: center;
     cursor: default;
