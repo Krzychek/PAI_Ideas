@@ -34,7 +34,6 @@
                     </div>
                 </div>
             <?php } ?>
-            <div style="height:0;width:0;clear:both;"></div>
         </div>
     <?php
     }
