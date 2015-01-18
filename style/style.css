@@ -211,7 +211,7 @@ html, body, .form_div {
     overflow: auto;
     margin: 15px auto 20px;
     padding: 0;
-    width: 1000px;
+    width: 800px;
     height: auto;
     border-radius: 2px;
     background: #876453;
@@ -220,7 +220,7 @@ html, body, .form_div {
     box-shadow: 0 0 10px -1px #323232;
 }
 
-.idea {
+.section {
     clear: both;
     overflow: auto;
     margin: 10px;
@@ -280,4 +280,10 @@ html, body, .form_div {
 
 .idea_stat:hover, .idea_tag:hover {
     color: #BCB1AC;
+}
+
+.idea_desc {
+    padding: 10px 50px 10px 10px;
+    color: #BCB1AC;
+    text-indent: 20px;
 }

@@ -12,7 +12,7 @@
         require('top_panel.php'); ?>
         <div class="content">
             <?php foreach ($this->data as $idea) { ?>
-                <div class="idea">
+                <div class="section">
                     <div class="idea_main">
                         <a href="TODO" class="idea_title"><?php echo $idea['title'] ?></a>
 
