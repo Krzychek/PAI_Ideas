@@ -14,17 +14,17 @@
             <?php foreach ($this->data as $idea) { ?>
                 <div class="section">
                     <div class="idea_main">
-                        <a href="TODO" class="idea_title"><?php echo $idea['title'] ?></a>
+                        <a href="/makeapp/idea/<?=$idea['idea_id']?>" class="idea_title"><?= $idea['title'] ?></a>
 
                         <div class="idea_tags">
                             <?php foreach (explode(',', $idea['tags']) as $tag) { ?>
-                                <a href="TODO" class="idea_tag"><?php echo $tag ?></a>
+                                <a href="TODO" class="idea_tag"><?= $tag ?></a>
                             <?php } ?>
                         </div>
                     </div>
                     <div class="idea_stats">
                         <div class="idea_stat">
-                            <div class="idea_stat_number"><?= $idea['score']?></div>
+                            <div class="idea_stat_number"><?= $idea['score'] ?></div>
                             <div class="idea_stat_desc">SCORE</div>
                         </div>
                         <div class="idea_stat">
