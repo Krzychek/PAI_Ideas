@@ -207,7 +207,7 @@ html, body, .form_div {
 }
 
 /* .idea_list */
-.idea_list {
+.ideas_list {
     overflow: auto;
     margin: 15px auto 20px;
     padding: 0;
@@ -234,11 +234,12 @@ html, body, .form_div {
 
 .idea_main {
     float: left;
-    width: 800px;
+    max-width: 700px;
 }
 
 .idea_stats {
     float: right;
+    max-width: 200px;
 }
 
 .idea_title {
