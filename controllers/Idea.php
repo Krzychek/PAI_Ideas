@@ -1,11 +1,12 @@
 <?php class Idea extends Controller {
 
-    function call()
+    function call($params)
     {
-        $conn = MySQL::getConnection();
-        $data = $conn->query("SELECT * FROM ideas_main_view")->fetch_all(MYSQLI_ASSOC);
         Auth::check_auth();
-        $view = new VMain($data);
+        $id = $params[0];
+        $conn = MySQL::getConnection();
+        $data = $conn->query("SELECT * FROM ideas_main_view WHERE idea_id = '$id'")->fetch_assoc();
+        $view = new VIdea($data);
         $view->render();
     }
 }
