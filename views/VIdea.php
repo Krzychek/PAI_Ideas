@@ -13,7 +13,7 @@
         <div class="content">
             <div class="major_section">
                 <div class="idea_main">
-                    <a href="TODO" class="idea_title"><?= $this->idea['title'] ?></a>
+                    <div class="idea_title"><?= $this->idea['title'] ?></div>
 
                     <div class="idea_tags">
                         <?php foreach (explode(',', $this->idea['tags']) as $tag) { ?>

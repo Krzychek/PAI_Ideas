@@ -271,7 +271,7 @@ html, body, .form_div {
     font-size: larger;
 }
 
-.idea_title:hover {
+a.idea_title:hover {
     text-decoration: underline;
 }
 
