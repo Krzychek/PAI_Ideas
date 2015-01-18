@@ -4,7 +4,7 @@ body {
     padding: 0;
     min-width: 850px;
     background: #BCB1AC;
-    font-family: Helvetica, tahoma, verdana, arial, sans-serif
+    font-family: Helvetica, tahoma, verdana, arial, sans-serif;
 }
 
 .center {
@@ -28,9 +28,9 @@ body {
     padding: 0;
     width: 100%;
     background-color: #3D3937;
-    -webkit-box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
-    box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
+    -webkit-box-shadow: 0 0 16px 0 #323232;
+    -moz-box-shadow: 0 0 16px 0 #323232;
+    box-shadow: 0 0 16px 0 #323232;
 }
 
 .main_menu li:hover a {
@@ -73,22 +73,23 @@ html, body, .form_div {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     display: block;
     overflow: auto;
     margin: 0;
     padding: 5px 15px;
     width: auto;
     background-color: #3D3937;
-    -webkit-box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
-    box-shadow: 0 0 16px 0 rgba(50, 50, 50, 0.75);
+    -webkit-box-shadow: 0 0 16px 0 #323232;
+    -moz-box-shadow: 0 0 16px 0 #323232;
+    box-shadow: 0 0 16px 0 #323232;
     color: #BCB1AC;
     text-align: center;
     font-weight: bold;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .form_input {
@@ -102,33 +103,34 @@ html, body, .form_div {
 
 .form_div {
     position: relative;
-    height: 100%;
     display: block;
     clear: both;
+    height: 100%;
 }
 
 .form_div > * {
-    float: right;
     display: block;
+    float: right;
     clear: both;
     margin: 10px 0;
 }
 
 .form_button {
-    float: none;
     position: relative;
-    display: block;
     left: 50%;
-    font-weight: inherit;
-    font-family: inherit;
+    display: block;
+    float: none;
     border: none;
     background-color: #3D3937;
-    font-size: inherit;
     color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
     -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
     -ms-transform: translate(-50%);
     -o-transform: translate(-50%);
-    transform: translate(-50);
+    transform: translate(-50%);
 }
 
 /* Table presentation */
@@ -146,9 +148,9 @@ html, body, .form_div {
     border-color: #BCB1AC;
     border-radius: 2px;
     background-color: #3D3937;
-    -webkit-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
-    -moz-box-shadow: 0 0 20px -1px rgb(50, 50, 50);
-    box-shadow: 0 0 20px -1px rgb(50, 50, 50);
+    -webkit-box-shadow: 0 0 20px -1px #323232;
+    -moz-box-shadow: 0 0 20px -1px #323232;
+    box-shadow: 0 0 20px -1px #323232;
     color: #BCB1AC;
 }
 
@@ -192,9 +194,9 @@ html, body, .form_div {
     border: none;
     border-radius: 0 50% 50% 0;
     background-color: #3D3937;
-    -webkit-box-shadow: 0 0 2px 0 rgb(50, 50, 50);
-    -moz-box-shadow: 0 0 2px 0 rgb(50, 50, 50);
-    box-shadow: 0 0 2px 0 rgb(50, 50, 50);
+    -webkit-box-shadow: 0 0 2px 0 #323232;
+    -moz-box-shadow: 0 0 2px 0 #323232;
+    box-shadow: 0 0 2px 0 #323232;
     color: #BCB1AC;
     vertical-align: middle;
     text-align: center;
@@ -207,26 +209,27 @@ html, body, .form_div {
 /* .idea_list */
 .idea_list {
     overflow: auto;
-    height: auto;
-    background: #876453;
     margin: 15px auto 20px;
     padding: 0;
     width: 1000px;
-    -webkit-box-shadow: 0 0 10px -1px rgb(50, 50, 50);
-    -moz-box-shadow: 0 0 10px -1px rgb(50, 50, 50);
-    box-shadow: 0 0 10px -1px rgb(50, 50, 50);
+    height: auto;
     border-radius: 2px;
+    background: #876453;
+    -webkit-box-shadow: 0 0 10px -1px #323232;
+    -moz-box-shadow: 0 0 10px -1px #323232;
+    box-shadow: 0 0 10px -1px #323232;
 }
 
 .idea {
-    background: #3D3937;
-    -webkit-box-shadow: 0 0 3px 0px rgb(50, 50, 50);
-    -moz-box-shadow: 0 0 3px 0px rgb(50, 50, 50);
-    box-shadow: 0 0 3px 0px rgb(50, 50, 50);
-    padding: 10px;
-    margin: 10px;
+    clear: both;
     overflow: auto;
-    height: auto clear : both;
+    margin: 10px;
+    padding: 10px;
+    height: auto;
+    background: #3D3937;
+    -webkit-box-shadow: 0 0 3px 0 #323232;
+    -moz-box-shadow: 0 0 3px 0 #323232;
+    box-shadow: 0 0 3px 0 #323232;
 }
 
 .idea_main {
@@ -239,9 +242,9 @@ html, body, .form_div {
 }
 
 .idea_title {
+    color: #BCB1AC;
     text-decoration: none;
     font-weight: bold;
-    color: #BCB1AC;
     font-size: larger;
 }
 
@@ -251,26 +254,26 @@ html, body, .form_div {
 
 .idea_stat {
     float: right;
-    text-align: center;
     margin: 5px;
     padding: 5px;
-    cursor: default;
     color: #a99e9b;
+    text-align: center;
+    cursor: default;
 }
 
 .idea_stat_desc {
-    font-size: smaller;
     text-transform: uppercase;
+    font-size: smaller;
 }
 
 .idea_tag {
-    text-decoration: none;
-    text-transform: uppercase;
+    float: left;
     margin: 3px;
     padding: 2px;
-    float: left;
-    font-size: smaller;
     color: #a99e9b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: smaller;
     cursor: pointer;
 }
 
