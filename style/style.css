@@ -207,7 +207,7 @@ html, body, .form_div {
 }
 
 /* .idea_list */
-.ideas_list {
+.content {
     overflow: auto;
     margin: 15px auto 20px;
     padding: 0;

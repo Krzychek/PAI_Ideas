@@ -10,8 +10,7 @@
     function view_body()
     {
         require('top_panel.php'); ?>
-        <div class="ideas_list">
-            <!--            foreach -->
+        <div class="content">
             <?php foreach ($this->data as $idea) { ?>
                 <div class="idea">
                     <div class="idea_main">
@@ -25,8 +24,8 @@
                     </div>
                     <div class="idea_stats">
                         <div class="idea_stat">
-                            <div class="idea_stat_number"><?= $idea['score']?></div> <!--TODO-->
-                            <div class="idea_stat_desc">SCORE</div> <!--TODO-->
+                            <div class="idea_stat_number"><?= $idea['score']?></div>
+                            <div class="idea_stat_desc">SCORE</div>
                         </div>
                         <div class="idea_stat">
                             <div class="idea_stat_number">0</div> <!--TODO-->
