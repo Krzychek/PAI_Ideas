@@ -9,6 +9,19 @@
         $this->comments = $comments;
     }
 
+    private function generateComments($comments)
+    {
+        foreach ($comments as $comment) { ?>
+            <div class="comment">
+                <div class="comment_content">
+                    <div class="comment_author"><?= $comment['author'] ?></div>
+                    :<?= $comment['content'] ?>
+                </div>
+                <?php if ($comment['subComments']) $this->generateComments($comment['subComments']); ?>
+            </div>
+        <?php }
+    }
+
     function view_body()
     {
         require('top_panel.php'); ?>
@@ -27,7 +40,7 @@
                     <div class="idea_stat">
                         <div class="idea_stat_number"><?= $this->idea['score'] ?></div>
                         <div class="idea_stat_desc">SCORE</div>
-                    </div>
+                    </div>g
                     <div class="idea_stat">
                         <div class="idea_stat_number">0</div>
                         <!--TODO-->
@@ -38,16 +51,9 @@
             </div>
             <div class="major_section idea_desc"><?= $this->idea['description'] ?></div>
             <hr/>
-            <div class="major_section" style="text-align: center;">KOMENTARZE</div>
+            <div class="major_section" style="text-align: center;font-weight:bolder;">KOMENTARZE</div>
             <div class="major_section">
-                <?php foreach ($this->comments as $comment) { ?>
-                    <div class="comment">
-                        <div class="comment_content">
-                            <div class="comment_author"><?= $comment['author'] ?></div>:
-                            <?= $comment['content'] ?>
-                        </div>
-                    </div>
-                <?php } ?>
+                <?php $this->generateComments($this->comments); ?>
             </div>
         </div>
     <?php
