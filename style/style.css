@@ -65,6 +65,7 @@ body {
 
 .main_menu li:hover a {
     color: white;
+    cursor: pointer;
 }
 
 .top_panel,
