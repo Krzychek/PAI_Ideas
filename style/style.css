@@ -1,14 +1,10 @@
-/* Main elements */
+/***** Main elements *****/
 body {
     margin: 0;
     padding: 0;
     min-width: 850px;
     background: #BCB1AC;
     font-family: Helvetica, tahoma, verdana, arial, sans-serif;
-}
-
-.center {
-    text-align: center;
 }
 
 :not(:hover) > * > .switch:first-child {
@@ -19,7 +15,41 @@ body {
     display: none;
 }
 
-/* Top Panel */
+.content {
+    overflow: auto;
+    margin: 15px auto 20px;
+    padding: 0;
+    width: 800px;
+    height: auto;
+    border-radius: 4px;
+    background: #876453;
+    -webkit-box-shadow: 0 0 10px -1px #323232;
+    -moz-box-shadow: 0 0 10px -1px #323232;
+    box-shadow: 0 0 10px -1px #323232;
+}
+
+.content > hr {
+    margin: 20px;
+    border: 0;
+    border-top: 2px dashed #3D3937;
+}
+
+.major_section {
+    clear: both;
+    overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    height: auto;
+    border-color: #BCB1AC;
+    border-radius: 3px;
+    background: #3D3937;
+    -webkit-box-shadow: 0 0 3px 0 #323232;
+    -moz-box-shadow: 0 0 3px 0 #323232;
+    box-shadow: 0 0 3px 0 #323232;
+    color: #BCB1AC;
+}
+
+/***** Top Panel *****/
 .top_panel {
     position: relative;
     display: block;
@@ -64,7 +94,7 @@ body {
     text-decoration: none;
 }
 
-/* Login form */
+/***** Forms [login, register, etc..] *****/
 html, body, .form_div {
     height: 100%;
 }
@@ -133,129 +163,7 @@ html, body, .form_div {
     transform: translate(-50%);
 }
 
-/* Table presentation */
-.title {
-    color: #BCB1AC;
-    text-align: center;
-    text-shadow: 0 0 5px #3D3937;
-}
-
-.data_table {
-    margin: auto;
-    max-width: 1300px;
-    border-spacing: 15px 8px;
-    border-collapse: separate;
-    border-color: #BCB1AC;
-    border-radius: 2px;
-    background-color: #3D3937;
-    -webkit-box-shadow: 0 0 20px -1px #323232;
-    -moz-box-shadow: 0 0 20px -1px #323232;
-    box-shadow: 0 0 20px -1px #323232;
-    color: #BCB1AC;
-}
-
-.data_table tr:hover td {
-    color: white;
-    cursor: pointer;
-}
-
-.data_table td,
-.data_table th {
-    padding: 3px 5px;
-}
-
-.data_table td {
-    position: relative;
-    border-bottom: 1px dashed #BDB76B;
-}
-
-.data_table th {
-    border-bottom: 2px solid #BDB76B;
-}
-
-.desription {
-    min-width: 350px;
-}
-
-.data_table input,
-.data_table select {
-    width: 100%;
-    border: dotted #876453;
-    background-color: #BCB1AC;
-}
-
-.data_table .addrm_button {
-    position: absolute;
-    right: -40px;
-    margin: -2px 0 0;
-    padding: 0;
-    width: 25px;
-    height: 25px;
-    border: none;
-    border-radius: 0 50% 50% 0;
-    background-color: #3D3937;
-    -webkit-box-shadow: 0 0 2px 0 #323232;
-    -moz-box-shadow: 0 0 2px 0 #323232;
-    box-shadow: 0 0 2px 0 #323232;
-    color: #BCB1AC;
-    vertical-align: middle;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bolder;
-    line-height: 25px;
-    cursor: pointer;
-}
-
-/* .idea_list */
-.content {
-    overflow: auto;
-    margin: 15px auto 20px;
-    padding: 0;
-    width: 800px;
-    height: auto;
-    border-radius: 4px;
-    background: #876453;
-    -webkit-box-shadow: 0 0 10px -1px #323232;
-    -moz-box-shadow: 0 0 10px -1px #323232;
-    box-shadow: 0 0 10px -1px #323232;
-}
-
-.content > hr {
-    margin: 20px;
-    border: 0;
-    border-top: 2px dashed #3D3937;
-}
-
-.major_section {
-    border-color: #BCB1AC;
-    clear: both;
-    overflow: auto;
-    margin: 10px;
-    padding: 10px;
-    height: auto;
-    border-radius: 3px;
-    background: #3D3937;
-    -webkit-box-shadow: 0 0 3px 0 #323232;
-    -moz-box-shadow: 0 0 3px 0 #323232;
-    box-shadow: 0 0 3px 0 #323232;
-    color: #BCB1AC;
-}
-
-input {
-    border-color: #3D3937;
-    clear: both;
-    overflow: auto;
-    margin: 10px;
-    padding: 10px;
-    height: auto;
-    border-radius: 3px;
-    background: #BCB1AC;
-    -webkit-box-shadow: inset 0 0 3px 0 #323232;
-    -moz-box-shadow: inset 0 0 3px 0 #323232;
-    box-shadow: inset 0 0 3px 0 #323232;
-    color: #323232;
-}
-
+/***** idea, ideas list *****/
 .idea_main {
     float: left;
     max-width: 700px;
@@ -326,13 +234,30 @@ a.idea_title:hover {
 }
 
 .comment_content {
-    padding: 8px;
     clear: both;
+    padding: 8px;
 }
+
 .comment_author {
-    color: white;
-    padding: 5px;
     display: inline;
-    font-weight: bolder;
+    padding: 5px;
+    color: white;
     text-decoration: underline;
+    font-weight: bolder;
+}
+
+/**** TODO unused *****/
+.editor {
+    clear: both;
+    overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    height: auto;
+    border-color: #3D3937;
+    border-radius: 3px;
+    background: #BCB1AC;
+    -webkit-box-shadow: inset 0 0 3px 0 #323232;
+    -moz-box-shadow: inset 0 0 3px 0 #323232;
+    box-shadow: inset 0 0 3px 0 #323232;
+    color: #323232;
 }
