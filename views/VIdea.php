@@ -1,10 +1,12 @@
 <?php class VIdea extends View
 {
     private $idea;
+    private $comments;
 
-    function __construct($idea)
+    function __construct($idea, $comments)
     {
         $this->idea = $idea;
+        $this->comments = $comments;
     }
 
     function view_body()
@@ -37,7 +39,11 @@
             <div class="major_section idea_desc"><?= $this->idea['description'] ?></div>
             <hr/>
             <div class="major_section" style="text-align: center;">KOMENTARZE</div>
-            <div class="minor_section">komentarze</div>
+            <div class="minor_section">
+                <?php foreach ($this->comments as $comment) { ?>
+                    <div class="comment"><?= $comment['content'] ?></div>
+                <?php } ?>
+            </div>
         </div>
     <?php
     }
