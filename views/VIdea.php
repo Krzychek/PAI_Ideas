@@ -15,7 +15,7 @@
             <div class="comment">
                 <div class="comment_content">
                     <div class="comment_author"><?= $comment['author'] ?></div>
-                    :<?= $comment['content'] ?>
+                    <?= $comment['content'] ?>
                 </div>
                 <?php if ($comment['subComments']) $this->generateComments($comment['subComments']); ?>
             </div>
