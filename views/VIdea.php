@@ -40,7 +40,7 @@
                     <div class="idea_stat">
                         <div class="idea_stat_number"><?= $this->idea['score'] ?></div>
                         <div class="idea_stat_desc">SCORE</div>
-                    </div>g
+                    </div>
                     <div class="idea_stat">
                         <div class="idea_stat_number">0</div>
                         <!--TODO-->
