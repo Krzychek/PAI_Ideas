@@ -55,6 +55,24 @@
             <div class="major_section">
                 <?php $this->generateComments($this->comments); ?>
             </div>
+            <script type="application/javascript">
+                function displayEditor () {
+                    var editor = document.createElement('form'),
+                        editorWrapper = document.createElement('div'),
+                        textarea = document.createElement('textarea'),
+                        sendBtn = document.createElement('button'),
+                        clear = document.createElement('div') ;
+                    editor.appendChild(textarea);
+                    editor.className = 'editor';
+                    sendBtn.innerText = 'OK';
+                    editor.appendChild(sendBtn);
+                    editorWrapper.appendChild(editor);
+                    editorWrapper.className = 'editor_wrapper';
+                    document.getElementsByClassName('comment')[0].appendChild(editorWrapper);
+                    clear.className = 'clear';
+                    document.getElementsByClassName('comment')[0].appendChild(clear);
+                }
+            </script>
         </div>
     <?php
     }
