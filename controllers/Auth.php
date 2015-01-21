@@ -1,7 +1,7 @@
 <?php class Auth extends Controller {
 	static function check_auth () {
 
-		$connection = MySQL::getConnection();
+		$connection = MySQL::getConn();
 		if (isset($_SERVER['PHP_AUTH_DIGEST'])):
 			// parse auth data
 			preg_match_all('@(\w+)=(?:(?:")([^"]+)"|([^\s,$]+))@',

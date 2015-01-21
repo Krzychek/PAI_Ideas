@@ -5,7 +5,7 @@ class MySQL
 {
     private static $connection;
 
-    static function getConnection()
+    static function getConn()
     {
         if (is_null(self::$connection)) {
             $db_host = "localhost";
