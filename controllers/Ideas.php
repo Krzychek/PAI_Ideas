@@ -4,7 +4,7 @@
     {
     }
 
-    function call()
+    public function main()
     {
         Auth::check_auth();
         $conn = MySQL::getConnection();

@@ -34,7 +34,7 @@
 		self::check_auth();
 	}
 
-	function call()
+	function main()
 	{
 		$view = new VLogin;
 		$view->render();

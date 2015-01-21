@@ -10,7 +10,7 @@
         }
     }
 
-    function call()
+    function main()
     {
         $view = new VRegister;
         $view->render();
