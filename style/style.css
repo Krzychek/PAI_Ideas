@@ -46,7 +46,7 @@ body {
     -webkit-box-shadow: 0 0 3px 0 #323232;
     -moz-box-shadow: 0 0 3px 0 #323232;
     box-shadow: 0 0 3px 0 #323232;
-    color: #BCB1AC;
+    color: #dfd2cb;
 }
 
 /***** Top Panel *****/
@@ -69,7 +69,7 @@ body {
 
 .top_panel,
 .top_panel a {
-    color: #BCB1AC;
+    color: #dfd2cb;
     font-weight: bold;
 }
 
@@ -112,7 +112,7 @@ html, body, .form_div {
     -webkit-box-shadow: 0 0 16px 0 #323232;
     -moz-box-shadow: 0 0 16px 0 #323232;
     box-shadow: 0 0 16px 0 #323232;
-    color: #BCB1AC;
+    color: #dfd2cb;
     text-align: center;
     font-weight: bold;
     -webkit-transform: translate(-50%, -50%);
@@ -175,7 +175,7 @@ html, body, .form_div {
 }
 
 .idea_title {
-    color: #BCB1AC;
+    color: #dfd2cb;
     text-decoration: none;
     font-weight: bold;
     font-size: larger;
@@ -211,12 +211,11 @@ a.idea_title:hover {
 }
 
 .idea_stat:hover, .idea_tag:hover {
-    color: #BCB1AC;
+    color: #dfd2cb;
 }
 
 .idea_desc {
     padding: 10px 50px 10px 10px;
-    color: #BCB1AC;
     text-indent: 20px;
 }
 
