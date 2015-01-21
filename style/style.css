@@ -227,6 +227,7 @@ html, body, .form_div {
 }
 
 .major_section {
+    border-color: #BCB1AC;
     clear: both;
     overflow: auto;
     margin: 10px;
@@ -240,7 +241,8 @@ html, body, .form_div {
     color: #BCB1AC;
 }
 
-.minor_section {
+input {
+    border-color: #3D3937;
     clear: both;
     overflow: auto;
     margin: 10px;
@@ -308,4 +310,29 @@ a.idea_title:hover {
     padding: 10px 50px 10px 10px;
     color: #BCB1AC;
     text-indent: 20px;
+}
+
+/**** comments ****/
+.comment {
+    margin: 5px;
+    padding: 0;
+    border-width: 1px 0 0 1px;
+    border-style: dotted;
+    font-size: 95%;
+}
+
+.comment .comment {
+    border-width: 1px 0 0 1px;
+}
+
+.comment_content {
+    padding: 8px;
+    clear: both;
+}
+.comment_author {
+    color: white;
+    padding: 5px;
+    display: inline;
+    font-weight: bolder;
+    text-decoration: underline;
 }

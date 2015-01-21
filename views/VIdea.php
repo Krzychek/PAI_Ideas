@@ -39,9 +39,14 @@
             <div class="major_section idea_desc"><?= $this->idea['description'] ?></div>
             <hr/>
             <div class="major_section" style="text-align: center;">KOMENTARZE</div>
-            <div class="minor_section">
+            <div class="major_section">
                 <?php foreach ($this->comments as $comment) { ?>
-                    <div class="comment"><?= $comment['content'] ?></div>
+                    <div class="comment">
+                        <div class="comment_content">
+                            <div class="comment_author"><?= $comment['author'] ?></div>:
+                            <?= $comment['content'] ?>
+                        </div>
+                    </div>
                 <?php } ?>
             </div>
         </div>
