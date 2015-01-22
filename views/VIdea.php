@@ -42,10 +42,8 @@
                         <div class="idea_stat_desc">SCORE</div>
                     </div>
                     <div class="idea_stat">
-                        <div class="idea_stat_number">0</div>
-                        <!--TODO-->
+                        <div class="idea_stat_number"><?= $this->idea['comments_count'] ?></div>
                         <div class="idea_stat_desc">comments</div>
-                        <!--TODO-->
                     </div>
                 </div>
             </div>
