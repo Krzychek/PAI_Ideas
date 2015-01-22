@@ -18,7 +18,7 @@
 
                         <div class="idea_tags">
                             <?php foreach (explode(',', $idea['tags']) as $tag) { ?>
-                                <a href="TODO" class="idea_tag"><?= $tag ?></a>
+                                <a href="<?= $GLOBALS['mainFolder'] ?>/tag/<?= $tag ?>" class="idea_tag"><?= $tag ?></a>
                             <?php } ?>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 <?php class Router
 {
     private static $controllers = array(
-        'Ideas', 'Register', 'Auth', 'Idea'
+        'Ideas', 'Register', 'Auth', 'Idea', 'Tag'
     );
     private $controller;
     private $params;
