@@ -13,7 +13,7 @@
                 return;
             }
         }
-        Router::error404();
+        Router::error(404);
     }
 
     public function __construct()

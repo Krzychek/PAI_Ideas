@@ -12,7 +12,7 @@
         $this->controller = ucfirst(strtolower($route[0]));
         $this->params = array_slice($route, 1);
         if (!in_array($this->controller, self::$controllers)) {
-            self::error404();
+            self::error(404);
         }
     }
 
@@ -26,10 +26,14 @@
         return $this->params;
     }
 
-    static function error404()
+    static function error($code)
     {
-        header("HTTP/1.0 404 Not Found");
-        echo "błąd 404!";
-        exit;
+        switch ($code) {
+            case 404:
+                header("HTTP/1.0 404 Not Found");
+                echo "błąd 404!";
+                exit;
+                break;
+        }
     }
 }

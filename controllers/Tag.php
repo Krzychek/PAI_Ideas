@@ -10,7 +10,7 @@
             $this->main($params[0]);
             return;
         }
-        Router::error404();
+        Router::error(404);
     }
 
     public function main($name)
