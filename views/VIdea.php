@@ -49,10 +49,12 @@
                         var editor = document.createElement('form'),
                             textarea = document.createElement('textarea'),
                             sendBtn = document.createElement('button');
+                        textarea.name = 'content';
                         editor.appendChild(textarea);
                         editor.className = 'editor';
                         editor.method = "POST";
                         sendBtn.innerText = 'OK';
+                        sendBtn.type = 'submit';
                         editor.appendChild(sendBtn);
                         wrapper = document.createElement('div');
                         wrapper.appendChild(editor);
