@@ -40,7 +40,7 @@ body {
 
 .major_section {
     clear: both;
-    overflow: auto;
+    overflow: visible;
     margin: 10px;
     padding: 10px;
     height: auto;
@@ -226,6 +226,7 @@ a.idea_title:hover {
 
 /**** comments ****/
 .comment {
+    position: relative;
     clear: both;
     margin: 5px;
     padding: 0;
@@ -249,6 +250,33 @@ a.idea_title:hover {
     color: white;
     text-decoration: underline;
     font-weight: bolder;
+}
+
+.respond_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    padding: 5px 10px;
+    border: 1px dotted;
+    border-radius: 5px 5px 0 0;
+    background: #3D3937;
+    color: #dfd2cb;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    -webkit-transform: translate(0, -100%);
+    -moz-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    -o-transform: translate(0, -100%);
+    transform: translate(0, -100%);
+}
+
+.comment_content:hover .respond_btn {
+    opacity: 1;
 }
 
 /***** comment editor *****/

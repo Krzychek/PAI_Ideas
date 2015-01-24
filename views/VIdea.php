@@ -9,19 +9,6 @@
         $this->comments = $comments;
     }
 
-    private function generateComments($comments)
-    {
-        foreach ($comments as $comment) { ?>
-            <div class="comment">
-                <div class="comment_content">
-                    <div class="comment_author"><?= $comment['author'] ?></div>
-                    <?= $comment['content'] ?>
-                </div>
-                <?php if ($comment['subComments']) $this->generateComments($comment['subComments']); ?>
-            </div>
-        <?php }
-    }
-
     function view_body()
     {
         require('top_panel.php'); ?>
@@ -54,24 +41,50 @@
                 <?php $this->generateComments($this->comments); ?>
             </div>
             <script type="application/javascript">
-                function displayEditor () {
-                    var editor = document.createElement('form'),
-                        editorWrapper = document.createElement('div'),
-                        textarea = document.createElement('textarea'),
-                        sendBtn = document.createElement('button'),
-                        clear = document.createElement('div') ;
-                    editor.appendChild(textarea);
-                    editor.className = 'editor';
-                    sendBtn.innerText = 'OK';
-                    editor.appendChild(sendBtn);
-                    editorWrapper.appendChild(editor);
-                    editorWrapper.className = 'editor_wrapper';
-                    document.getElementsByClassName('comment')[0].appendChild(editorWrapper);
+                function displayEditor(commentID) {
+                    window.editor_commentID = commentID;
+                    var comment = document.getElementById('comment_' + commentID),
+                        wrapper = document.getElementById('comment_editor_wrapper');
+                    if (comment.lastElementChild.className === 'clear') comment.removeChild(comment.lastElementChild);
+
+                    if (!wrapper) {
+                        var editor = document.createElement('form'),
+                            textarea = document.createElement('textarea'),
+                            sendBtn = document.createElement('button');
+                        editor.appendChild(textarea);
+                        editor.className = 'editor';
+                        editor.id = 'commentEditor';
+                        sendBtn.innerText = 'OK';
+                        editor.appendChild(sendBtn);
+                        wrapper = document.createElement('div');
+                        wrapper.appendChild(editor);
+                        wrapper.className = 'editor_wrapper';
+                        wrapper.id = 'comment_editor_wrapper';
+                        comment.appendChild(wrapper);
+                    } else comment.appendChild(wrapper.parentNode.removeChild(wrapper));
+
+                    var clear = document.createElement('div');
                     clear.className = 'clear';
-                    document.getElementsByClassName('comment')[0].appendChild(clear);
+                    comment.appendChild(clear);
                 }
             </script>
+            <div class="clear"></div>
         </div>
     <?php
+    }
+
+    private function generateComments($comments)
+    {
+        foreach ($comments as $comment) { ?>
+            <div class="comment">
+                <div class="comment_content" id="comment_<?= $comment['comment_id'] ?>">
+                    <div class="comment_author"><?= $comment['author'] ?></div>
+                    <?= $comment['content'] ?>
+                    <button class="respond_btn" onclick="displayEditor(<?= $comment['comment_id'] ?>)">Odpowiedz
+                    </button>
+                </div>
+                <?php if ($comment['subComments']) $this->generateComments($comment['subComments']); ?>
+            </div>
+        <?php }
     }
 }
