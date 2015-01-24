@@ -1,7 +1,7 @@
 <?php class Router
 {
     private static $controllers = array(
-        'Ideas', 'Register', 'Auth', 'Idea', 'Tag'
+        'Ideas', 'Register', 'Auth', 'Idea', 'Tag', 'Comment'
     );
     private $controller;
     private $params;
@@ -16,16 +16,6 @@
         }
     }
 
-    function getController()
-    {
-        return new $this->controller;
-    }
-
-    function getParams()
-    {
-        return $this->params;
-    }
-
     static function error($code)
     {
         switch ($code) {
@@ -34,5 +24,15 @@
                 echo "błąd 404!";
                 die;
         }
+    }
+
+    function getController()
+    {
+        return new $this->controller;
+    }
+
+    function getParams()
+    {
+        return $this->params;
     }
 }
