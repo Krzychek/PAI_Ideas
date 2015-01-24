@@ -1,13 +1,5 @@
 <?php class View
 {
-    function view_head()
-    {
-    }
-
-    function view_body()
-    {
-    }
-
     function render()
     { ?>
         <!doctype html>
@@ -23,4 +15,20 @@
         </body>
         </html>
     <?php }
+
+    function view_head()
+    {
+    }
+
+    function view_body()
+    {
+    }
+
+    protected function parseBBCode(&$text)
+    {
+        $text = preg_replace("#\[b\](.*?)\[/b\]#si", '<b>\\1</b>', $text);
+        $text = preg_replace("#\[u\](.*?)\[/u\]#si", '<u>\\1</u>', $text);
+        $text = preg_replace("#\[s\](.*?)\[/s\]#si", '<s>\\1</s>', $text);
+        return preg_replace("#\[i\](.*?)\[/i\]#si", '<i>\\1</i>', $text);
+    }
 }

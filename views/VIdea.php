@@ -90,7 +90,7 @@
             <div class="comment">
                 <div class="comment_content" id="comment_<?= $comment['comment_id'] ?>">
                     <div class="comment_author"><?= $comment['author'] ?></div>
-                    <?= $comment['content'] ?>
+                    <?= $this->parseBBCode($comment['content']) ?>
                     <button class="respond_btn" onclick="displayEditor(<?= $comment['comment_id'] ?>)">Odpowiedz
                     </button>
                 </div>
