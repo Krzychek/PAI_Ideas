@@ -32,6 +32,7 @@
         $session_id = $conn->query("SELECT @session_id")->fetch_row()[0];
 
         setcookie('SESSION_ID', $session_id, time() + $expire * 60,$GLOBALS['mainFolder'].'/');
+        header('Content-Type: application/jsonf');
         echo json_encode(array("location" => $GLOBALS['mainFolder'] . "/Ideas/"));
     }
 
