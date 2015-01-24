@@ -1,42 +1,30 @@
-<?php class Auth extends Controller {
-	static function check_auth () {
+<?php class Auth extends Controller
+{
+    static function check_auth()
+    {
 
-		$connection = MySQL::getConn();
-		if (isset($_SERVER['PHP_AUTH_DIGEST'])):
-			// parse auth data
-			preg_match_all('@(\w+)=(?:(?:")([^"]+)"|([^\s,$]+))@',
-								$_SERVER['PHP_AUTH_DIGEST'], $matches, PREG_SET_ORDER);
-			foreach ($matches as $match) {
-				$authAuth[$match[1]] = $match[2] ? $match[2] : $match[3];
-			}
-		else:
-			header('WWW-Authenticate: Digest realm="' . "DB" . '",qop="auth",nonce="' . uniqid()
-				. '",opaque="' . "DB" . '"');
-			die();
-		endif;
+        if (!isset($_COOKIE['SESSION_ID'])) {
+            header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
+            die;
+        }
+        $connection = MySQL::getConn();
 
-		/** @noinspection PhpUndefinedVariableInspection */
-		$login = $connection->real_escape_string($authAuth['username']);
-		$result = $connection->query("SELECT a1digest FROM `users` WHERE login = '{$login}'", MYSQLI_USE_RESULT);
-		$A1 = $result->fetch_object()->a1digest;
-		$A2 = md5("{$_SERVER['REQUEST_METHOD']}:{$authAuth['uri']}");
-		$validResponse = md5("{$A1}:{$authAuth['nonce']}:{$authAuth['nc']}:{$authAuth['cnonce']}:{$authAuth['qop']}:{$A2}");
-		if ($authAuth['response']!=$validResponse){
-			header('WWW-Authenticate: Digest realm="' . "DB" . '",qop="auth",nonce="' . uniqid()
-				. '",opaque="' . "DB" . '"');
-			header('HTTP/1.0 401 Unauthorized');
-			die();
-		}
-		$GLOBALS['user_id'] = $login;
-	}
-	function dologin()
-	{
-		self::check_auth();
-	}
+        $session_id = $connection->real_escape_string($_COOKIE['SESSION_ID']);
+        $GLOBALS['login'] = $connection->query("SELECT login FROM sessions WHERE session_id = '$session_id'")->fetch_field();
+        if (!$GLOBALS['login']) {
+            header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
+            die;
+        }
+    }
 
-	function main()
-	{
-		$view = new VLogin;
-		$view->render();
-	}
+    function dologin()
+    {
+        // TODO
+    }
+
+    function main()
+    {
+        $view = new VLogin;
+        $view->render();
+    }
 }
