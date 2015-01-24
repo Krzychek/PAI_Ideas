@@ -11,9 +11,11 @@
         $route = explode('/', $route);
         $this->controller = ucfirst(strtolower($route[0]));
         $this->params = array_slice($route, 1);
-        if (!in_array($this->controller, self::$controllers)) {
-            self::error(404);
+        if ($this->controller == "") {
+            header('Location: ' . $GLOBALS['mainFolder'] . '/Ideas');
+            die;
         }
+        if (!in_array($this->controller, self::$controllers)) self::error(404);
     }
 
     static function error($code)

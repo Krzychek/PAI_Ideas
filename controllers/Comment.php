@@ -10,5 +10,6 @@
 
         $conn->query("CALL `add_comment`('$comment','$source_id','$login')");
 
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
