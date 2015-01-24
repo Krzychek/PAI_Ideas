@@ -236,6 +236,8 @@ a.idea_title:hover {
 }
 
 .comment .comment {
+    margin-right: 0;
+    margin-left: 20px;
     border-width: 1px 0 0 1px;
 }
 
