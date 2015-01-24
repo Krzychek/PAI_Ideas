@@ -32,6 +32,7 @@
                             <div class="idea_stat_desc">comments</div>
                         </div>
                     </div>
+                    <div class="clear"></div>
                 </div>
             <?php } ?>
         </div>
