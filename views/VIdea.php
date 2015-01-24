@@ -42,18 +42,16 @@
             </div>
             <script type="application/javascript">
                 function displayEditor(commentID) {
-                    window.editor_commentID = commentID;
                     var comment = document.getElementById('comment_' + commentID),
                         wrapper = document.getElementById('comment_editor_wrapper');
                     if (comment.lastElementChild.className === 'clear') comment.removeChild(comment.lastElementChild);
-
                     if (!wrapper) {
                         var editor = document.createElement('form'),
                             textarea = document.createElement('textarea'),
                             sendBtn = document.createElement('button');
                         editor.appendChild(textarea);
                         editor.className = 'editor';
-                        editor.id = 'commentEditor';
+                        editor.method = "POST";
                         sendBtn.innerText = 'OK';
                         editor.appendChild(sendBtn);
                         wrapper = document.createElement('div');
@@ -61,7 +59,18 @@
                         wrapper.className = 'editor_wrapper';
                         wrapper.id = 'comment_editor_wrapper';
                         comment.appendChild(wrapper);
-                    } else comment.appendChild(wrapper.parentNode.removeChild(wrapper));
+                    } else {
+                        comment.appendChild(wrapper.parentNode.removeChild(wrapper));
+                    }
+
+                    var child = wrapper.firstChild;
+                    while (child) {
+                        if (child.className == 'editor') {
+                            child.action = "<?= $GLOBALS['mainFolder'] ?>/comment/add/" + commentID;
+                            break
+                        }
+                        child = child.nextSibling;
+                    }
 
                     var clear = document.createElement('div');
                     clear.className = 'clear';
