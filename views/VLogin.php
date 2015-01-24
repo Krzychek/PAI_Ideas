@@ -44,9 +44,11 @@
                                          CryptoJS.SHA1(CryptoJS.SHA1(CryptoJS.SHA1(username) + password) + nonce);
                             innerhttp.open("POST", '<?= $GLOBALS['mainFolder'] ?>/Auth/dologin/', true);
                             innerhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            innerhttp.onreadystatechange = function () {
+                                var json = JSON.parse(innerhttp.responseText);
+                                if (http.readyState == 4 && 'location' in json) document.location = json.location;
+                            };
                             innerhttp.send(params);
-                        } else {
-                            // TODO
                         }
                     }
                 };
