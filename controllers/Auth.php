@@ -10,7 +10,7 @@
         $connection = MySQL::getConn();
 
         $session_id = $connection->real_escape_string($_COOKIE['SESSION_ID']);
-        $GLOBALS['login'] = $connection->query("SELECT login FROM sessions WHERE session_id = '$session_id'")->fetch_field();
+        $GLOBALS['login'] = $connection->query("SELECT login FROM sessions WHERE session_id = '$session_id'")->fetch_row()[0];
         if (!$GLOBALS['login']) {
             header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
             die;
@@ -19,7 +19,31 @@
 
     function dologin()
     {
-        // TODO
+        $conn = MySQL::getConn();
+        $login = $conn->real_escape_string($_POST['login']);
+        $auth = $conn->real_escape_string($_POST['auth']);
+        if (1 != $conn->query("SELECT dologin('$login', '$auth')")->fetch_row()[0]) {
+            header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
+            die;
+        }
+        $expire = 9999;
+        $session_id = $conn->query("CALL `get_session_id`('$login', $expire, @p2); SELECT @p2 AS `session_id`;")->fetch_row()[0];
+        setcookie('SESSION_ID', $session_id, time() + $expire * 60);
+        echo json_encode(array("location" => $GLOBALS['mainFolder'] . "/Ideas/"));
+    }
+
+    function getnonce($param)
+    {
+        echo MySQL::getConn()->query("SELECT nonce FROM users WHERE login = '$param[0]'")->fetch_row()[0];
+    }
+
+    function logout() {
+        if (isset($_COOKIE['SESSION_ID'])) {
+            $conn = MySQL::getConn();
+            $session_id = $conn->real_escape_string($_COOKIE['SESSION_ID']);
+            $conn->query("DELETE FROM sessions WHERE session_id = '$session_id'");
+        }
+        header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
     }
 
     function main()
