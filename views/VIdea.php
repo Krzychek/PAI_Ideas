@@ -33,16 +33,29 @@
                         <div class="idea_stat_desc">comments</div>
                     </div>
                 </div>
+                <div class="clear"></div>
             </div>
-            <div class="major_section idea_desc"><?= $this->idea['description'] ?></div>
+            <div class="major_section idea_desc">
+                <?= $this->idea['description'] ?>
+            </div>
             <hr/>
             <div class="major_section" style="text-align: center;font-weight:bolder;">KOMENTARZE</div>
             <div class="major_section">
                 <?php $this->generateComments($this->comments); ?>
             </div>
+
+            <div class="major_section" style="text-align: center;font-weight:bolder;">Dodaj swój komentarz:</div>
+            <div class="major_section">
+                <div class="editor_wrapper">
+                    <form class="editor" method="POST" action="/makeapp/comment/add/<?= $this->idea['idea_id'] ?>">
+                        <textarea name="content"></textarea>
+                        <button type="submit">OK</button>
+                    </form>
+                </div>
+            </div>
             <script type="application/javascript">
-                function displayEditor(commentID) {
-                    var comment = document.getElementById('comment_' + commentID),
+                function displayEditor(commentableID) {
+                    var comment = document.getElementById('comm_' + commentableID),
                         wrapper = document.getElementById('comment_editor_wrapper');
                     if (comment.lastElementChild.className === 'clear') comment.removeChild(comment.lastElementChild);
                     if (!wrapper) {
@@ -68,7 +81,7 @@
                     var child = wrapper.firstChild;
                     while (child) {
                         if (child.className == 'editor') {
-                            child.action = "<?= $GLOBALS['mainFolder'] ?>/comment/add/" + commentID;
+                            child.action = "<?= $GLOBALS['mainFolder'] ?>/comment/add/" + commentableID;
                             break
                         }
                         child = child.nextSibling;
@@ -88,7 +101,7 @@
     {
         foreach ($comments as $comment) { ?>
             <div class="comment">
-                <div class="comment_content" id="comment_<?= $comment['comment_id'] ?>">
+                <div class="comment_content" id="comm_<?= $comment['comment_id'] ?>">
                     <div class="comment_author"><?= $comment['author'] ?></div>
                     <?= $this->parseBBCode($comment['content']) ?>
                     <button class="respond_btn" onclick="displayEditor(<?= $comment['comment_id'] ?>)">Odpowiedz
