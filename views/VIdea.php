@@ -46,12 +46,10 @@
 
             <div class="major_section" style="text-align: center;font-weight:bolder;">Dodaj swój komentarz:</div>
             <div class="major_section">
-                <div class="editor_wrapper">
-                    <form class="editor" method="POST" action="/makeapp/comment/add/<?= $this->idea['idea_id'] ?>">
-                        <textarea name="content"></textarea>
-                        <button type="submit">OK</button>
+                <form method="POST" action="/makeapp/comment/add/<?= $this->idea['idea_id'] ?>">
+                    <textarea class="desc_input" style="height: 100px;" name="content"></textarea>
+                    <input class="form_button" type="submit" value="Dodaj">
                     </form>
-                </div>
             </div>
             <script type="application/javascript">
                 function displayEditor(commentableID) {
@@ -61,12 +59,14 @@
                     if (!wrapper) {
                         var editor = document.createElement('form'),
                             textarea = document.createElement('textarea'),
-                            sendBtn = document.createElement('button');
+                            sendBtn = document.createElement('input');
                         textarea.name = 'content';
+                        textarea.className = 'desc_input';
                         editor.appendChild(textarea);
                         editor.className = 'editor';
                         editor.method = "POST";
-                        sendBtn.innerText = 'OK';
+                        sendBtn.className = 'form_button';
+                        sendBtn.value = 'Dodaj';
                         sendBtn.type = 'submit';
                         editor.appendChild(sendBtn);
                         wrapper = document.createElement('div');
