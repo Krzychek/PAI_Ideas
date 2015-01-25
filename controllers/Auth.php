@@ -22,7 +22,7 @@
         $conn = MySQL::getConn();
         $login = $conn->real_escape_string($_POST['login']);
         $auth = $conn->real_escape_string($_POST['auth']);
-        if ($cos = $conn->query("SELECT dologin('$login', '$auth')")->fetch_row()[0]) {
+        if ("0" === $conn->query("SELECT dologin('$login', '$auth')")->fetch_row()[0]) {
             header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
             die;
         }
@@ -57,19 +57,3 @@
         $view->render();
     }
 }
-
-/*
-BEGIN
-START TRANSACTION;
-
-REPEAT
-	SET @id = MD5(rand());
-UNTIL @id NOT IN(SELECT `session_id` FROM `sessions` FOR UPDATE)
-    END REPEAT;
-
-INSERT INTO `sessions`(`session_id`, `expires`, `login`)
-VALUES(@id, TIMESTAMPADD(MINUTE, minutes, CURRENT_TIMESTAMP), login);
-SELECT @id INTO session_id;
-
-COMMIT;
-END*/
