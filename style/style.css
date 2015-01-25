@@ -161,6 +161,8 @@ html, body, .form_div {
     font-weight: inherit;
     font-size: inherit;
     font-family: inherit;
+    opacity: 1;
+    cursor: pointer;
     -webkit-transform: translate(-50%);
     -moz-transform: translate(-50%);
     -ms-transform: translate(-50%);
@@ -168,6 +170,10 @@ html, body, .form_div {
     transform: translate(-50%);
 }
 
+.form_button:disabled {
+    opacity: 0.2;;
+    cursor: default;
+}
 /***** idea, ideas list *****/
 .idea_main {
     float: left;

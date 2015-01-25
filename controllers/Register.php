@@ -1,13 +1,14 @@
 <?php class Register extends Controller
 {
-    function register()
+    function post()
     {
         $connection = MySQL::getConn();
-        $A1 = $connection->real_escape_string($_POST['A1']);
+        $A1 = $connection->real_escape_string($_POST['a1']);
         $login = $connection->real_escape_string($_POST['login']);
-        if ($connection->query("INSERT INTO `users`(login, a1digest) VALUES ('$login', '$A1';")) {
-            // TODO if exist
+        if ($connection->query("INSERT INTO `users`(login, a1) VALUES ('$login', '$A1');")) {
+            http_response_code(409);
         }
+        // TODO redirect to successfull register
     }
 
     function main()

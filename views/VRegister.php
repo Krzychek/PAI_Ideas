@@ -2,7 +2,7 @@
 {
     function view_body()
     { ?>
-        <form class="form" method='POST' action='<?= $GLOBALS['mainFolder'] ?>/Register/register/'>
+        <form class="form" onsubmit="return postData();">
             <div class="form_div">
                 <label>Login: <input class="form_input" onkeyup="login_check()" type="text" name="login"></label>
                 <label>Hasło: <input class="form_input" onkeyup="pass_check()" type="password" name="pass"></label>
@@ -13,6 +13,7 @@
                 <input type="submit" disabled="disabled" id="submit_btn" class="form_button" value="ZAREJESTRUJ">
             </div>
         </form>
+        <script type="application/javascript" src="<?= $GLOBALS['mainFolder'] ?>/scripts/sha1.js"></script>
         <script type="text/javascript">
             function enableSubmit(params) {
                 if (params instanceof Object) {
@@ -43,7 +44,8 @@
                     }
                 };
                 xmlhttp.open('GET',
-                    '<?= $GLOBALS['mainFolder'] ?>/Register/check/' + document.getElementsByName('login')[0].value + '/',
+                    '<?= $GLOBALS['mainFolder'] ?>/Register/check/' + document.getElementsByName('login')[0].value +
+                    '/',
                     true);
                 xmlhttp.send();
             }
@@ -55,8 +57,35 @@
                 } else enableSubmit({pass: false});
             }
             function postData() {
-                var login = document.getElementsByTagName('login')[0].value;
-                var pass = document.getElementsByTagName('pass')[0].value;
+                var login = document.getElementsByName('login')[0].value,
+                    pass = document.getElementsByName('pass')[0].value,
+                    a1 = CryptoJS.SHA1(CryptoJS.SHA1(login) + pass).toString(),
+                    http = getHTTPObject(),
+                    params = "login=" + login + "&a1=" + a1;
+
+                http.open("POST", '<?= $GLOBALS['mainFolder'] ?>/Register/post/', true);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4) {
+                        switch (http.status) {
+                            case 200:
+                                try {
+                                    var json = JSON.parse(http.responseText);
+                                    if ('location' in json) document.location = json.location;
+                                } catch (e) {
+                                }
+                                break;
+                            case 409:
+                                //TODO username exist
+                                break;
+                            default:
+                                alert("Nierozpoznana odpowiedź serwera: " + http.status);
+                        }
+                    }
+                };
+                http.send(params);
+
+                return false;
             }
         </script>
     <?php
