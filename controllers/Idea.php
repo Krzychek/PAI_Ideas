@@ -28,22 +28,38 @@
             die;
         }
         $conn = MySQL::getConn();
+        $conn->begin_transaction();
         $title = $conn->real_escape_string($_POST['title']);
         $tags = $conn->real_escape_string(str_replace(' ', '', strtoupper($_POST['tags'])));
         $content = $conn->real_escape_string($_POST['content']);
         $login = $GLOBALS['login'];
 
         $conn->query("CALL add_idea ('$login', '$title', '$content', @id)");
+        if ($conn->errno) {
+            $conn->rollback();
+            die;
+        }
         $idea_id = $conn->query("SELECT @id")->fetch_row()[0];
+        if ($conn->errno) {
+            $conn->rollback();
+            die;
+        }
 
         $tag_ids = array();
         foreach (explode(',', $tags) as $tag) {
             if ($conn->query("INSERT INTO tags(name) VALUES ('$tag')")) {
                 array_push($tag_ids, $conn->insert_id);
+            } else {
+                array_push($tag_ids, $conn->query("SELECT tag_id FROM tags WHERE name = '$tag'")->fetch_row()[0]);
             }
         }
-        foreach ($tag_ids as $tag_id) $conn->query("INSERT INTO tag_link(idea_id, tag_id) VALUES ($idea_id, $tag_id)");
-
+        foreach ($tag_ids as $tag_id) {
+            if (!$conn->query("INSERT INTO tag_link(idea_id, tag_id) VALUES ($idea_id, $tag_id)") && $conn->errno) {
+                $conn->rollback();
+                die;
+            }
+        }
+        $conn->commit();
         header('Location: ' . $GLOBALS['mainFolder'] . '/idea/' . $idea_id);
     }
 
