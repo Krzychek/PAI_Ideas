@@ -6,6 +6,7 @@
 
     public function call($params)
     {
+        Auth::check_auth();
         if ($params[0]) {
             $this->main($params[0]);
             return;
