@@ -3,7 +3,7 @@
         <li><a href="<?= $GLOBALS['mainFolder'] ?>/ideas">MakeApp!</a></li>
         <li style="float: right;"><a href="<?= $GLOBALS['mainFolder'] ?>/Auth/logout" class="switch"> wyloguj </a>
             <a class="switch">
-                Zalogowano jako: <?= $GLOBALS['user_id'] ?>
+                Zalogowano jako: <?= $GLOBALS['login'] ?>
             </a>
         </li>
     </ul>
