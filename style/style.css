@@ -53,6 +53,12 @@ body {
     color: #dfd2cb;
 }
 
+.major_section_header {
+    text-align: center;
+    text-indent: 0;
+    font-weight: bolder;
+}
+
 /***** Top Panel *****/
 .top_panel {
     position: relative;
@@ -74,7 +80,7 @@ body {
 
 .top_panel,
 .top_panel a {
-    color: #dfd2cb;
+    color: #968d8b;
     font-weight: bold;
 }
 
@@ -91,10 +97,24 @@ body {
     list-style: none;
 }
 
+.main_menu li {
+    margin: 7px 0;
+    border-right: 2px dashed #876453;
+}
+
+.main_menu li:first-child {
+    margin-left: 4px;
+    border-left: 2px dashed #876453;
+}
+
+.main_menu li:last-child {
+    border: none;
+}
+
 .main_menu a,
 .main_menu a:visited {
     display: block;
-    padding: 7px 15px;
+    padding: 0 15px;
     text-align: center;
     text-decoration: none;
 }
@@ -174,6 +194,7 @@ html, body, .form_div {
     opacity: 0.2;;
     cursor: default;
 }
+
 /***** idea, ideas list *****/
 .idea_main {
     float: left;
@@ -226,7 +247,7 @@ a.idea_title:hover {
 }
 
 .idea_desc {
-    padding: 10px 50px 10px 10px;
+    padding: 10px 50px 10px 50px;
     text-indent: 20px;
 }
 
@@ -335,4 +356,27 @@ a.idea_title:hover {
 
 .editor_wrapper {
     text-align: center;
+}
+
+/***** new idea *****/
+.desc_input, .title_input, .tags_input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    border: none;
+    background: inherit;
+    -webkit-box-shadow: 0 0 5px 0 #876453;
+    -moz-box-shadow: 0 0 5px 0 #876453;
+    box-shadow: 0 0 5px 0 #876453;
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+.title_input, .tags_input {
+    text-align: center;
+}
+
+.desc_input {
+    height: 400px;
 }
