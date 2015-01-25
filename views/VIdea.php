@@ -36,7 +36,7 @@
                 <div class="clear"></div>
             </div>
             <div class="major_section idea_desc">
-                <?= $this->idea['description'] ?>
+                <?= $this->parseBBCode($this->idea['description']) ?>
             </div>
             <hr/>
             <div class="major_section" style="text-align: center;font-weight:bolder;">KOMENTARZE</div>
