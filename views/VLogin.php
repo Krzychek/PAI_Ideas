@@ -6,7 +6,8 @@
         <div class="form">
             <form onsubmit="return doLogin()">
                 <div class="form_div">
-                    <label>Login: <input type=text id="login-username" class="form_input" name="login"></label>
+                    <label>Login: <input type=text id="login-username" class="form_input" name="login"
+                                         autofocus></label>
                     <label>Hasło: <input type=password id="login-password" class="form_input" name="password"></label>
                 </div>
                 <div class="form_div">

@@ -4,7 +4,8 @@
     { ?>
         <form class="form" onsubmit="return postData();">
             <div class="form_div">
-                <label>Login: <input class="form_input" onkeyup="login_check()" type="text" name="login"></label>
+                <label>Login: <input class="form_input" onkeyup="login_check()" type="text" name="login"
+                                     autofocus></label>
                 <label>Hasło: <input class="form_input" onkeyup="pass_check()" type="password" name="pass"></label>
                 <label>Powtórz hasło: <input class="form_input" onkeyup="pass_check()" type="password"
                                              name="passr"></label>
