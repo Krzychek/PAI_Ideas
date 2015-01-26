@@ -227,6 +227,25 @@ a.idea_title:hover {
     cursor: default;
 }
 
+.votes {
+    float: right;
+    margin: 5px;
+    padding: 0;
+    color: #7f7776;
+    text-align: center;
+    cursor: default;
+}
+
+.vote_down:hover, .vote_down.voted {
+    color: red;
+    cursor: pointer;
+}
+
+.vote_up:hover, .vote_up.voted {
+    color: green;
+    cursor: pointer;
+}
+
 .idea_stat_desc {
     text-transform: uppercase;
     font-size: smaller;

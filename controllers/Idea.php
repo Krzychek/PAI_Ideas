@@ -16,7 +16,16 @@
             $id = $params[0];
             $conn = MySQL::getConn();
             $idea_data = $conn->query("SELECT * FROM ideas_details WHERE idea_id = '$id'")->fetch_assoc();
-            $view = new VIdea($idea_data, $this->getComments($id));
+            $login = $GLOBALS['login'];
+            $vote = $conn->query("SELECT up FROM votes WHERE idea_id = '$id' AND voter_login = '$login'");
+            if ($vote and $vote->num_rows > 0) {
+                $vote = $vote->fetch_row()[0];
+                if ($vote === '1') $vote = 1;
+                else $vote = -1;
+            } else {
+                $vote = 0;
+            }
+            $view = new VIdea($idea_data, $this->getComments($id), $vote);
             $view->render();
         }
     }

@@ -3,10 +3,11 @@
     private $idea;
     private $comments;
 
-    function __construct($idea, $comments)
+    function __construct($idea, $comments, $vote)
     {
         $this->idea = $idea;
         $this->comments = $comments;
+        $this->vote = $vote;
     }
 
     function view_body()
@@ -24,8 +25,15 @@
                     </div>
                 </div>
                 <div class="idea_stats">
+                    <div class="votes">
+                        <br/>
+                    </div>
                     <div class="idea_stat">
-                        <div class="idea_stat_number"><?= $this->idea['score'] ?></div>
+                        <div class="idea_stat_number">
+                            <b class="vote_down" onclick="vote_up(<?= $this->idea['idea_id'] ?>)">&ndash;</b>
+                            <?= $this->idea['score'] ?>
+                            <b class="vote_up" onclick="vote_down(<?= $this->idea['idea_id'] ?>)">+</b>
+                        </div>
                         <div class="idea_stat_desc">SCORE</div>
                     </div>
                     <div class="idea_stat">
@@ -47,9 +55,9 @@
             <div class="major_section" style="text-align: center;font-weight:bolder;">Dodaj swój komentarz:</div>
             <div class="major_section">
                 <form method="POST" action="/makeapp/comment/add/<?= $this->idea['idea_id'] ?>">
-                    <textarea class="desc_input" style="height: 100px;" name="content"></textarea>
+                    <textarea class="desc_input" style="height: 100px;" name="content" title=""></textarea>
                     <input class="form_button" type="submit" value="Dodaj">
-                    </form>
+                </form>
             </div>
             <script type="application/javascript">
                 function displayEditor(commentableID) {
@@ -90,6 +98,54 @@
                     var clear = document.createElement('div');
                     clear.className = 'clear';
                     comment.appendChild(clear);
+                }
+                function getHTTPObject() {
+                    if (typeof XMLHttpRequest != 'undefined') return new XMLHttpRequest();
+                    try {
+                        return new ActiveXObject('Msxml2.XMLHTTP');
+                    } catch (e) {
+                        try {
+                            return new ActiveXObject('Microsoft.XMLHTTP');
+                        } catch (e) {
+                        }
+                    }
+                    return false;
+                }
+                function show_vote(vote) {
+                    var up = document.getElementsByClassName('vote_up')[0];
+                    var down = document.getElementsByClassName('vote_down')[0];
+                    switch (vote) {
+                        case 1:
+                            up.style.color = 'green';
+                            down.style.color = '';
+                            break;
+                        case -1:
+                            up.style.color = '';
+                            down.style.color = 'red';
+                            break;
+                        default:
+                            up.style.color = '';
+                            down.style.color = '';
+                    }
+                }
+                function vote_up(id) {
+                    var http = getHTTPObject();
+                    http.open("GET", '<?= $GLOBALS['mainFolder'] ?>/myvote/down/' + id, true);
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) show_vote(-1);
+                    };
+                    http.send(null);
+                }
+                function vote_down(id) {
+                    var http = getHTTPObject();
+                    http.open("GET", '<?= $GLOBALS['mainFolder'] ?>/myvote/up/' + id, true);
+                    http.onreadystatechange = function () {
+                        if (http.readyState == 4 && http.status == 200) show_vote(1);
+                    };
+                    http.send(null);
+                }
+                window.onload = function () {
+                    show_vote(<?= $this->vote ?>);
                 }
             </script>
             <div class="clear"></div>
