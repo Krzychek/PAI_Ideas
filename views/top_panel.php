@@ -4,7 +4,7 @@
         <li><a href="<?= $GLOBALS['mainFolder'] ?>/idea/new">Dodaj pomysł</a></li>
         <li style="float: right;"><a href="<?= $GLOBALS['mainFolder'] ?>/Auth/logout" class="switch"> wyloguj </a>
             <a class="switch">
-                Zalogowano jako: <?= $GLOBALS['login'] ?>
+                <span style="text-decoration: underline;"><?= $GLOBALS['login'] ?></span>
             </a>
         </li>
     </ul>
