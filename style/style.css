@@ -108,7 +108,8 @@ body {
 }
 
 .main_menu li:last-child {
-    border: none;
+    border-right: none;
+    border-left: 2px dashed #876453;
 }
 
 .main_menu a,
