@@ -1,4 +1,4 @@
-<?php class Myvote extends Controller
+<?php class Vote extends Controller
 {
     function up($params)
     {

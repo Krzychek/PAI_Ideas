@@ -1,6 +1,6 @@
 <?php class Router
 {
-    private static $controllers = array('Ideas', 'Register', 'Auth', 'Idea', 'Tag', 'Comment', 'Myvote');
+    private static $controllers = array('Ideas', 'Register', 'Auth', 'Idea', 'Tag', 'Comment', 'Vote');
     private $controller;
     private $params;
 

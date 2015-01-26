@@ -130,7 +130,7 @@
                 }
                 function vote_up(id) {
                     var http = getHTTPObject();
-                    http.open("GET", '<?= $GLOBALS['mainFolder'] ?>/myvote/down/' + id, true);
+                    http.open("GET", '<?= $GLOBALS['mainFolder'] ?>/vote/down/' + id, true);
                     http.onreadystatechange = function () {
                         if (http.readyState == 4 && http.status == 200) show_vote(-1);
                     };
@@ -138,7 +138,7 @@
                 }
                 function vote_down(id) {
                     var http = getHTTPObject();
-                    http.open("GET", '<?= $GLOBALS['mainFolder'] ?>/myvote/up/' + id, true);
+                    http.open("GET", '<?= $GLOBALS['mainFolder'] ?>/vote/up/' + id, true);
                     http.onreadystatechange = function () {
                         if (http.readyState == 4 && http.status == 200) show_vote(1);
                     };
