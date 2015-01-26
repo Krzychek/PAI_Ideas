@@ -18,7 +18,7 @@
     {
         Auth::check_auth();
         $data = MySQL::getConn()->query("SELECT * FROM ideas_overview WHERE tags regexp '(,|^){$name}(,|$)' ORDER BY ideas_overview.date ")->fetch_all(MYSQLI_ASSOC);
-        $view = new VIdeas($data);
+        $view = new vIdeas($data);
         $view->render();
     }
 }

@@ -26,7 +26,7 @@ class MySQL
 function _autoloader($class)
 {
     switch ($class[0]) {
-        case 'V':
+        case 'v':
             /** @noinspection PhpIncludeInspection */
             include 'views/' . $class . '.php';
             break;

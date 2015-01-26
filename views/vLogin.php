@@ -1,4 +1,4 @@
-<?php class VLogin extends View
+<?php class vLogin extends view
 {
     function view_body()
     {

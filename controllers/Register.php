@@ -13,7 +13,7 @@
 
     function main()
     {
-        $view = new VRegister;
+        $view = new vRegister;
         $view->render();
     }
 

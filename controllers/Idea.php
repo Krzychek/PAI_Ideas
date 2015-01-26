@@ -6,7 +6,7 @@
         if ($params[0] === "new") {
             switch ($_SERVER['REQUEST_METHOD']) {
                 case 'GET':
-                    (new VAddIdea())->render();
+                    (new vAddIdea())->render();
                     break;
                 case 'POST':
                     $this->addNew();
@@ -25,7 +25,7 @@
             } else {
                 $vote = 0;
             }
-            $view = new VIdea($idea_data, $this->getComments($id), $vote);
+            $view = new vIdea($idea_data, $this->getComments($id), $vote);
             $view->render();
         }
     }

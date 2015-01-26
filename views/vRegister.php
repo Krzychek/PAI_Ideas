@@ -1,4 +1,4 @@
-<?php class VRegister extends View
+<?php class vRegister extends view
 {
     function view_body()
     { ?>

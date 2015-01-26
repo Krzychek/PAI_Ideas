@@ -53,7 +53,7 @@
 
     function main()
     {
-        $view = new VLogin;
+        $view = new vLogin;
         $view->render();
     }
 }

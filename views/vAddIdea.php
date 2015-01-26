@@ -1,4 +1,4 @@
-<?php class VAddIdea extends View
+<?php class vAddIdea extends view
 {
     function view_body()
     {

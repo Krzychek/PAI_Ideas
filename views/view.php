@@ -1,4 +1,4 @@
-<?php class View
+<?php class view
 {
     function render()
     { ?>

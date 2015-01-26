@@ -1,4 +1,4 @@
-<?php class VIdeas extends View
+<?php class vIdeas extends view
 {
     private $data;
 
