@@ -12,7 +12,7 @@
         $this->controller = ucfirst(strtolower($route[0]));
         $this->params = array_slice($route, 1);
         if ($this->controller == "") {
-            header('Location: ' . $GLOBALS['mainFolder'] . '/Ideas');
+            header('Location: ' . $GLOBALS['mainFolder'] . '/ideas');
             die;
         }
         if (!in_array($this->controller, self::$controllers)) self::error(404);
