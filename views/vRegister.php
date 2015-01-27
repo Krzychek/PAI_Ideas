@@ -6,7 +6,7 @@
             <div class="form_div">
                 <label>Login: <input class="form_input" onkeyup="login_check()" type="text" name="login"
                                      autofocus></label>
-                <label>Hasło: <input class="form_input" onkeyup="pass_check()" type="password" name="pass"></label>
+                <label>Hasło: <input class="form_input" onchange="pass_check()" type="password" name="pass"></label>
                 <label>Powtórz hasło: <input class="form_input" onkeyup="pass_check()" type="password"
                                              name="passr"></label>
             </div>
@@ -37,6 +37,16 @@
                 return false;
             }
             function login_check() {
+                var login = document.getElementsByName('login')[0].value;
+                enableSubmit({login: false});
+                if (!login.match(/^[a-zA-Z]+[0-9]*$/)) {
+                    // TODO warning
+                    return;
+                }
+                if (login.length < 3) {
+                    // TODO warning
+                    return;
+                }
                 var xmlhttp = getHTTPObject();
                 xmlhttp.onreadystatechange = function () {
                     if (4 == xmlhttp.readyState) {
@@ -45,17 +55,21 @@
                     }
                 };
                 xmlhttp.open('GET',
-                    '<?= $GLOBALS['mainFolder'] ?>/Register/check/' + document.getElementsByName('login')[0].value +
-                    '/',
-                    true);
+                    '<?= $GLOBALS['mainFolder'] ?>/Register/check/' + login + '/', true);
                 xmlhttp.send();
             }
             function pass_check() {
+                enableSubmit({pass: false});
                 var pass = document.getElementsByName('pass')[0].value;
-                if (pass < 5) return;
-                if (pass == document.getElementsByName('passr')[0].value) {
-                    enableSubmit({pass: true});
-                } else enableSubmit({pass: false});
+                if (!pass.match(/(?=.*[0-9]+.*)(?=.*[a-z]+.*)(?=.*[A-Z]+.*)/)) {
+                    // TODO warning
+                    return;
+                }
+                if (pass < 5) {
+                    // TODO warning
+                    return;
+                }
+                if (pass == document.getElementsByName('passr')[0].value) enableSubmit({pass: true});
             }
             function postData() {
                 var login = document.getElementsByName('login')[0].value,
