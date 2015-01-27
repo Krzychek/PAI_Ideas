@@ -236,14 +236,18 @@ a.idea_title:hover {
     cursor: default;
 }
 
-.vote_down:hover, .vote_down.voted {
+.vote_down:hover {
     color: red;
     cursor: pointer;
 }
 
-.vote_up:hover, .vote_up.voted {
+.vote_up:hover {
     color: green;
     cursor: pointer;
+}
+
+.vote_down, .vote_up {
+    line-height: 0.8;
 }
 
 .idea_stat_desc {
