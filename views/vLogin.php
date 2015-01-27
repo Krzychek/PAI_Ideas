@@ -1,8 +1,19 @@
 <?php class vLogin extends view
 {
+    private $message;
+
+    function __construct($message = null)
+    {
+        $this->message = $message;
+    }
+
     function view_body()
     {
-        ?>
+        if ($this->message) { ?>
+            <div class="content">
+                <div class="major_section" style="text-align: center"><?= $this->message ?></div>
+            </div>
+        <?php } ?>
         <div class="form">
             <form onsubmit="return doLogin()">
                 <div class="form_div">

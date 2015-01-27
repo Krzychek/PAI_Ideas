@@ -7,7 +7,9 @@
         $login = $connection->real_escape_string($_POST['login']);
         if (preg_match('/^[a-zA-Z]+[0-9]*$/', $login)) {
             if ($connection->query("INSERT INTO `users`(login, a1) VALUES ('$login', '$A1');")) {
-                // TODO redirect to successfull register
+                header('Content-Type: application/jsonf');
+                echo json_encode(array("location" => $GLOBALS['mainFolder'] . "/Register/success"));
+                exit();
             }
         }
         http_response_code(409);
@@ -17,6 +19,11 @@
     {
         $view = new vRegister;
         $view->render();
+    }
+
+    function success()
+    {
+        (new vLogin("Twoja rejestracja przebiegła pomyślnie, możesz się zalogować:"))->render();
     }
 
     function check($params)
