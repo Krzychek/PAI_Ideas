@@ -26,9 +26,12 @@
 
     protected function parseBBCode(&$text)
     {
-        $text = preg_replace("#\[b\](.*?)\[/b\]#si", '<b>\\1</b>', $text);
-        $text = preg_replace("#\[u\](.*?)\[/u\]#si", '<u>\\1</u>', $text);
-        $text = preg_replace("#\[s\](.*?)\[/s\]#si", '<s>\\1</s>', $text);
-        return preg_replace("#\[i\](.*?)\[/i\]#si", '<i>\\1</i>', $text);
+        $text = preg_replace('#\[b\](.*?)\[/b\]#si', '<b>\\1</b>', $text);
+        $text = preg_replace('#\[u\](.*?)\[/u\]#si', '<u>\\1</u>', $text);
+        $text = preg_replace('#\[s\](.*?)\[/s\]#si', '<s>\\1</s>', $text);
+        $text = preg_replace('#\[i\](.*?)\[/i\]#si', '<i>\\1</i>', $text);
+        $text = str_replace("\r\n\r\n", '</p><p>', $text);
+        $text = str_replace("\n\n", '</p><p>', $text);
+        return '<p>' . str_replace("\n", '<br/>', $text) . '</p>';
     }
 }

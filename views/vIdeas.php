@@ -14,7 +14,10 @@
             <?php foreach ($this->data as $idea) { ?>
                 <div class="major_section">
                     <div class="idea_main">
-                        <a href="<?= $GLOBALS['mainFolder'] ?>/idea/<?=$idea['idea_id']?>" class="idea_title"><?= $idea['title'] ?></a>
+                        <a href="<?= $GLOBALS['mainFolder'] ?>/idea/<?= $idea['idea_id'] ?>" class="idea_title">
+                            <?= $idea['title'] ?>
+                            <span class="author">~ <?= $idea['login'] ?></span>
+                        </a>
 
                         <div class="idea_tags">
                             <?php foreach (explode(',', $idea['tags']) as $tag) { ?>

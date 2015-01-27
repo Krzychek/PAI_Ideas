@@ -16,7 +16,10 @@
         <div class="content">
             <div class="major_section">
                 <div class="idea_main">
-                    <div class="idea_title"><?= $this->idea['title'] ?></div>
+                    <div class="idea_title">
+                        <?= $this->idea['title'] ?>
+                        <span class="author">~ <?= $this->idea['login'] ?></span>
+                    </div>
 
                     <div class="idea_tags">
                         <?php foreach (explode(',', $this->idea['tags']) as $tag) { ?>
