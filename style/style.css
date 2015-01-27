@@ -288,6 +288,10 @@ a.idea_title:hover {
     font-size: 95%;
 }
 
+.comment p:first-of-type {
+    display: inline;
+}
+
 .comment .comment {
     margin-right: 0;
     margin-left: 20px;
