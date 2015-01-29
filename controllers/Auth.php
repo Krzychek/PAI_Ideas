@@ -36,8 +36,8 @@
         $login = $conn->real_escape_string($_POST['login']);
         $auth = $conn->real_escape_string($_POST['auth']);
         if ("0" === $conn->query("SELECT dologin('$login', '$auth')")->fetch_row()[0]) {
-            header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
-            die;
+            header('HTTP/1.1 500 Internal Server Booboo');
+            die();
         }
         $expire = 9999;
 

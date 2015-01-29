@@ -14,8 +14,9 @@
                 <div class="major_section" style="text-align: center"><?= $this->message ?></div>
             </div>
         <?php } ?>
+        <div class="top_panel" style="color: red; text-align: center;" id="warning"></div>
         <div class="form">
-            <form onsubmit="return doLogin()">
+            <form method="post" onsubmit="return doLogin()">
                 <div class="form_div">
                     <label>Login: <input type=text id="login-username" class="form_input" name="login"
                                          autofocus></label>
@@ -57,8 +58,16 @@
                             innerhttp.open("POST", '<?= $GLOBALS['mainFolder'] ?>/Auth/dologin/', true);
                             innerhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                             innerhttp.onreadystatechange = function () {
-                                var json = JSON.parse(innerhttp.responseText);
-                                if (http.readyState == 4 && 'location' in json) document.location = json.location;
+                                if (http.readyState == 4) {
+                                    try {
+                                        var json = JSON.parse(innerhttp.responseText);
+                                        if ('location' in json) document.location = json.location;
+                                        return;
+                                    } catch (e) {
+                                    }
+                                    document.getElementById('warning').innerText = 'Niepoprawny login lub ' +
+                                                                                   'hasło, spróbuj ponownie';
+                                }
                             };
                             innerhttp.send(params);
                         }
