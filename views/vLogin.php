@@ -25,6 +25,9 @@
                 <div class="form_div">
                     <input type=submit value="ZALOGUJ" class="form_button">
                 </div>
+                <div class="form_div form_hint">
+                    Lub <a href="<?= $GLOBALS['mainFolder'] ?>/Register">utwórz nowe konto</a>
+                </div>
             </form>
         </div>
 
