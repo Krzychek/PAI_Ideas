@@ -8,11 +8,14 @@
                 <label>Login: <input class="form_input" onkeyup="login_check()" type="text" name="login"
                                      autofocus></label>
                 <label>Hasło: <input class="form_input" onchange="pass_check()" type="password" name="pass"></label>
-                <label>Powtórz hasło: <input class="form_input" onkeyup="pass_check()" type="password"
-                                             name="passr"></label>
+                <label>Powtórz hasło: <input class="form_input" onkeyup="pass_check()" type="password" name="passr">
+                </label>
             </div>
             <div class="form_div">
                 <input type="submit" disabled="disabled" id="submit_btn" class="form_button" value="ZAREJESTRUJ">
+            </div>
+            <div class="form_div form_hint">Lub <a href="<?= $GLOBALS['mainFolder'] ?>/Auth">zaloguj</a> jeśli masz
+                konto
             </div>
         </form>
         <script type="application/javascript" src="<?= $GLOBALS['mainFolder'] ?>/scripts/sha1.js"></script>

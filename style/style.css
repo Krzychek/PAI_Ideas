@@ -171,6 +171,18 @@ html, body, .form_div {
     margin: 10px 0;
 }
 
+.form_div > a {
+    display: inline;
+    float: none;
+    color: #BCB1AC;
+    opacity: 1;
+}
+
+.form_hint {
+    color: #524d4d;
+    font-size: smaller;
+}
+
 .form_button {
     position: relative;
     left: 50%;
