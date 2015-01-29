@@ -1,6 +1,6 @@
 <?php class Router
 {
-    private static $controllers = array('Ideas', 'Register', 'Auth', 'Idea', 'Tag', 'Comment', 'Vote');
+    private static $controllers = ['Ideas', 'Register', 'Auth', 'Idea', 'Tag', 'Comment', 'Vote', 'Users'];
     private $controller;
     private $params;
 
@@ -18,12 +18,18 @@
 
     static function error($code)
     {
+        http_response_code($code);
         switch ($code) {
             case 404:
-                header("HTTP/1.0 404 Not Found");
-                echo "błąd 404!";
-                die;
+                echo "błędny adres!";
+                break;
+            case 403:
+                echo "nie masz uprawnień!";
+                break;
+            default:
+                http_response_code(404);
         }
+        die;
     }
 
     function getController()

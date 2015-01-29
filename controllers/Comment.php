@@ -2,7 +2,7 @@
 {
     function add($param)
     {
-        Auth::check_auth();
+        Auth::check_auth('comment');
         $conn = MySQL::getConn();
         $source_id = $conn->real_escape_string($param[0]);
         $comment = $conn->real_escape_string(htmlspecialchars($_POST['content']));

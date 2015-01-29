@@ -2,7 +2,7 @@
 {
     function up($params)
     {
-        Auth::check_auth();
+        Auth::check_auth('vote');
         $login = $GLOBALS['login'];
         MySQL::getConn()->query("INSERT INTO votes (voter_login, idea_id, up) VALUES('$login', $params[0], 1) " .
             "ON DUPLICATE KEY UPDATE up=1");
@@ -13,7 +13,7 @@
 
     function down($params)
     {
-        Auth::check_auth();
+        Auth::check_auth('vote');
         $login = $GLOBALS['login'];
         MySQL::getConn()->query("INSERT INTO votes (voter_login, idea_id, up) VALUES('$login', $params[0], 0) " .
             "ON DUPLICATE KEY UPDATE up=0");

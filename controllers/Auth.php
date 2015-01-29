@@ -1,6 +1,6 @@
 <?php class Auth extends Controller
 {
-    static function check_auth()
+    static function check_auth($perm = null)
     {
 
         if (!isset($_COOKIE['SESSION_ID'])) {
@@ -10,11 +10,24 @@
         $connection = MySQL::getConn();
 
         $session_id = $connection->real_escape_string($_COOKIE['SESSION_ID']);
-        $GLOBALS['login'] = $connection->query("SELECT login FROM sessions WHERE session_id = '$session_id'")->fetch_row()[0];
-        if (!$GLOBALS['login']) {
+        $login = $connection->query("SELECT login FROM sessions WHERE session_id = '$session_id'")->fetch_row()[0];
+        if (!$login) {
             header("Location: " . $GLOBALS['mainFolder'] . "/Auth/");
             die;
         }
+
+        if ($perm) {
+            if ('0' === $connection->query("SELECT check_perm('$login','$perm')")->fetch_row()[0]) {
+                Router::error(403);
+            }
+        }
+        $GLOBALS['login'] = $login;
+    }
+
+    public static function check_perm($perm)
+    {
+        $login = $GLOBALS['login'];
+        return ('1' === MySQL::getConn()->query("SELECT check_perm('$login','$perm')")->fetch_row()[0]);
     }
 
     function dologin()

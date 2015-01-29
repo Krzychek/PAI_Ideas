@@ -2,7 +2,6 @@
 {
     function call($params)
     {
-        Auth::check_auth();
         if ($params[0] === "new") {
             switch ($_SERVER['REQUEST_METHOD']) {
                 case 'GET':
@@ -13,8 +12,9 @@
                     break;
             }
         } else {
-            $id = $params[0];
+            Auth::check_auth();
             $conn = MySQL::getConn();
+            $id = $conn->real_escape_string($params[0]);
             $idea_data = $conn->query("SELECT * FROM ideas_details WHERE idea_id = '$id'")->fetch_assoc();
             $login = $GLOBALS['login'];
             $vote = $conn->query("SELECT up FROM votes WHERE idea_id = '$id' AND voter_login = '$login'");
@@ -32,6 +32,7 @@
 
     private function addNew()
     {
+        Auth::check_auth('add_idea');
         if (!isset($_POST['title'], $_POST['tags'], $_POST['content'])) {
             http_response_code(400);
             die;
